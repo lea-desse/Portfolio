@@ -1,0 +1,8 @@
+{
+  "name": "Portfolio Léa Desse",
+  "description": "Un site CV professionnel et interactif incluant une galerie de projets et un assistant IA basé sur Gemini.",
+  "requestFramePermissions": [
+    "camera",
+    "microphone"
+  ]
+}
