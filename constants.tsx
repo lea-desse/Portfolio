@@ -76,7 +76,17 @@ export const TRANSLATIONS: any = {
         {
           title: "Système d'Ailerons Stabilisateurs pour Moto",
           description: "Système de correction d'assiette en temps réel avec IMU Bosch. Architecture dual-box communiquant via CAN. Réalisation complète : design PCB, firmware, boîtiers imprimés en 3D.",
-          category: "Robotique / Moto"
+          category: "Robotique / Moto",
+          details: {
+            fullDescription: "Ce projet vise à améliorer la stabilité et l'aérodynamisme des motos à haute vitesse. Le système utilise une centrale inertielle (IMU) Bosch pour détecter l'inclinaison et le tangage en temps réel, pilotant des ailerons mobiles via des servomoteurs haute précision.",
+            features: [
+              "Calcul d'assiette à 200Hz pour une réactivité instantanée",
+              "Communication robuste entre les modules via bus CAN",
+              "Algorithme PID personnalisé pour le contrôle des surfaces mobiles",
+              "Monitoring en temps réel via port série pour le débug"
+            ],
+            technologies: ["STM32F4", "FreeRTOS", "Bus CAN", "C/C++", "KiCad", "Impression 3D"]
+          }
         },
         {
           title: "Imprimante Thermique Connectée",
@@ -186,7 +196,17 @@ export const TRANSLATIONS: any = {
         {
           title: "Motorcycle Stabilizer Wing System",
           description: "Real-time attitude correction system with Bosch IMU. Dual-box architecture communicating via CAN. Complete realization: PCB design, firmware, 3D-printed enclosures.",
-          category: "Robotics / Moto"
+          category: "Robotics / Moto",
+          details: {
+            fullDescription: "This project aims to improve stability and aerodynamics for motorcycles at high speeds. The system uses a Bosch Inertial Measurement Unit (IMU) to detect lean and pitch in real-time, driving movable wings via high-precision servos.",
+            features: [
+              "200Hz attitude calculation for instant reactivity",
+              "Robust inter-module communication via CAN bus",
+              "Custom PID algorithm for wing surface control",
+              "Real-time monitoring via serial port for debugging"
+            ],
+            technologies: ["STM32F4", "FreeRTOS", "CAN Bus", "C/C++", "KiCad", "3D Printing"]
+          }
         },
         {
           title: "Connected Thermal Printer",

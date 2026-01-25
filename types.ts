@@ -8,6 +8,11 @@ export interface Project {
   imageUrl: string;
   videoUrl?: string;
   githubUrl?: string;
+  details?: {
+    fullDescription: string;
+    features: string[];
+    technologies: string[];
+  };
 }
 
 export interface Skill {
