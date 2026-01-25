@@ -8,39 +8,30 @@ export const askCVAssistant = async (message: string, lang: 'fr' | 'en') => {
     const apiKey = import.meta.env.VITE_GEMINI_API_KEY;
     
     if (!apiKey) {
-      return lang === 'fr' ? "Erreur : Clé API manquante." : "Error: API Key missing.";
+      return lang === 'fr' ? "Clé API absente." : "API Key missing.";
     }
 
     if (!genAI) {
-      // On force l'utilisation de l'API v1 au lieu de v1beta pour plus de stabilité
       genAI = new GoogleGenerativeAI(apiKey);
     }
 
+    // On utilise le nom le plus simple possible
+    const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
+
     const tData = TRANSLATIONS[lang].data;
-    
-    // On spécifie explicitement la version v1 dans les options du modèle
-    const model = genAI.getGenerativeModel(
-      { model: "gemini-1.5-flash" },
-      { apiVersion: 'v1' }
-    );
-
-    const prompt = `
-Tu es Kernel, l'assistant de ${CV_DATA.name}. 
-Réponds de manière concise en ${lang === 'fr' ? 'Français' : 'Anglais'}.
-Contexte bio: ${tData.about}
-Compétences: ${SKILLS.map(s => s.name).join(', ')}
-
-Question: ${message}
-`;
+    const prompt = `Tu es Kernel, l'assistant de ${CV_DATA.name}. Bio: ${tData.about}. Réponds à : ${message}`;
 
     const result = await model.generateContent(prompt);
-    const response = await result.response;
-    return response.text();
+    const text = result.response.text();
+    return text;
     
   } catch (error: any) {
     console.error("Gemini Error Detail:", error);
-    return lang === 'fr' 
-      ? "Désolé, je rencontre une difficulté pour accéder au service IA." 
-      : "Sorry, I'm having trouble accessing the AI service.";
+    if (error?.message?.includes("404") || error?.message?.includes("not found")) {
+        return lang === 'fr' 
+          ? "Erreur 404 : Le modèle est introuvable. Veuillez vérifier que votre clé API provient bien de Google AI Studio et que l'API est activée." 
+          : "Error 404: Model not found. Please check your API key and ensured the API is enabled.";
+    }
+    return lang === 'fr' ? "Une erreur est survenue." : "An error occurred.";
   }
 };
