@@ -243,6 +243,8 @@ export const SKILLS: Skill[] = [
   { name: 'Zigbee', level: 90, category: 'Protocols' },
   { name: 'OpenThread', level: 90, category: 'Protocols' },
   { name: 'NFC (ST25)', level: 85, category: 'Protocols' },
+  { name: 'Bluetooth / BLE', level: 80, category: 'Protocols' },
+  { name: 'Git', level: 90, category: 'Tools' },
   { name: 'Jenkins / CI-CD', level: 80, category: 'Tools' },
   { name: 'Joulescope / ST-Link V3', level: 85, category: 'Tools' },
 ];

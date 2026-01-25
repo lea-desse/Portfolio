@@ -78,7 +78,7 @@ const Contact: React.FC = () => {
             </div>
           </div>
           
-          <div className="bg-slate-50 p-10 md:p-14 rounded-[3rem] border-2 border-slate-100 shadow-xl relative overflow-hidden group">
+          <div className="bg-slate-50 p-10 md:p-14 rounded-[3rem] border-2 border-slate-200 shadow-2xl relative overflow-hidden group">
             {/* Background design */}
             <div className="absolute top-0 right-0 w-32 h-32 bg-green-500/5 rounded-full blur-3xl -mr-16 -mt-16"></div>
             

@@ -10,7 +10,7 @@ const ProjectCard: React.FC<{ project: any, tData: any }> = ({ project, tData })
   const isMediaReady = project.imageUrl && !project.imageUrl.includes('projet');
 
   return (
-    <div className="bg-slate-900 rounded-3xl overflow-hidden group h-full flex flex-col transition-all duration-500 hover:scale-[1.02] border-2 border-slate-800 hover:border-green-500 shadow-2xl">
+    <div className="bg-slate-800/50 rounded-3xl overflow-hidden group h-full flex flex-col transition-all duration-500 hover:scale-[1.02] border-2 border-slate-700 hover:border-green-500 shadow-2xl">
       <div className="relative h-72 overflow-hidden bg-slate-950 flex items-center justify-center">
         {isMediaReady ? (
           <>
