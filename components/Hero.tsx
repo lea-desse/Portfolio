@@ -32,14 +32,6 @@ const Hero: React.FC = () => {
               <a href="#contact" className="px-10 py-4 bg-white border-2 border-slate-900 hover:bg-slate-50 text-slate-900 rounded-xl font-bold transition-all text-xs uppercase tracking-widest text-center">
                 {t('hero.cta_secondary')}
               </a>
-              <a 
-                href={`./${CV_DATA.cv_file}`} 
-                download
-                className="px-10 py-4 bg-green-500 hover:bg-green-400 text-slate-900 rounded-xl font-black transition-all text-xs uppercase tracking-widest flex items-center gap-2"
-              >
-                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
-                {t('hero.cta_cv')}
-              </a>
             </div>
           </div>
           

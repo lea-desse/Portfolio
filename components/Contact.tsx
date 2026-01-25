@@ -68,8 +68,16 @@ const Contact: React.FC = () => {
               </a>
               
               <div className="flex gap-4">
-                <a href={CV_DATA.socials.linkedin} target="_blank" rel="noopener noreferrer" className="w-full flex items-center justify-center p-6 rounded-3xl bg-white border border-slate-200 hover:border-green-500 transition-all font-black text-[10px] uppercase tracking-widest text-slate-900 hover:text-green-600 shadow-sm hover:shadow-xl">
+                <a href={CV_DATA.socials.linkedin} target="_blank" rel="noopener noreferrer" className="flex-1 flex items-center justify-center p-6 rounded-3xl bg-white border border-slate-200 hover:border-green-500 transition-all font-black text-[10px] uppercase tracking-widest text-slate-900 hover:text-green-600 shadow-sm hover:shadow-xl">
                   LinkedIn_Profile
+                </a>
+                <a 
+                  href={`./${CV_DATA.cv_file}`} 
+                  download
+                  className="flex-1 flex items-center justify-center gap-3 p-6 rounded-3xl bg-green-500 hover:bg-green-400 border border-green-500 transition-all font-black text-[10px] uppercase tracking-widest text-slate-900 shadow-sm hover:shadow-xl hover:scale-[1.02] active:scale-95"
+                >
+                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
+                  {t('hero.cta_cv')}
                 </a>
               </div>
             </div>
