@@ -29,7 +29,7 @@ const Hero: React.FC = () => {
                 <span>{t('hero.cta_primary')}</span>
                 <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
               </a>
-              <a href={`mailto:${CV_DATA.email}`} className="px-10 py-4 bg-white border-2 border-slate-900 hover:bg-slate-50 text-slate-900 rounded-xl font-bold transition-all text-xs uppercase tracking-widest">
+              <a href="#contact" className="px-10 py-4 bg-white border-2 border-slate-900 hover:bg-slate-50 text-slate-900 rounded-xl font-bold transition-all text-xs uppercase tracking-widest text-center">
                 {t('hero.cta_secondary')}
               </a>
               <a 
