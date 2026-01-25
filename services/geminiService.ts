@@ -19,7 +19,15 @@ export const askCVAssistant = async (message: string, lang: 'fr' | 'en') => {
     const model = genAI.getGenerativeModel({ model: "gemini-3-flash-preview" });
 
     const tData = TRANSLATIONS[lang].data;
-    const prompt = `Tu es Kernel, l'assistant de ${CV_DATA.name}. Bio: ${tData.about}. Réponds à : ${message}`;
+    const prompt = `
+Instructions strictes :
+1. Tu es Kernel, l'assistant de ${CV_DATA.name}.
+2. NE TE PRÉSENTE PAS (ne dis pas "Je suis Kernel") si la conversation est déjà engagée.
+3. N'UTILISE JAMAIS de gras (**texte**) dans tes réponses.
+4. Réponds de manière concise et technique en ${lang === 'fr' ? 'Français' : 'Anglais'}.
+
+Contexte de Léa : ${tData.about}
+Question : ${message}`;
 
     const result = await model.generateContent(prompt);
     const text = result.response.text();
