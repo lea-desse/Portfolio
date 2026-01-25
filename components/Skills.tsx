@@ -38,24 +38,19 @@ const Skills: React.FC = () => {
           </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
           {filteredSkills.map((skill) => (
-            <div key={skill.name} className="bg-white p-8 rounded-2xl border-2 border-transparent hover:border-green-500 transition-all duration-300 group shadow-sm hover:shadow-xl">
-              <div className="flex justify-between items-center mb-6">
-                <span className="font-black text-lg text-slate-900 uppercase tracking-tighter">{skill.name}</span>
-                <span className="text-green-500 text-xs font-black">{(skill.level.toString(16)).toUpperCase()}h</span>
+            <div key={skill.name} className="bg-white p-6 rounded-xl border border-slate-200 hover:border-green-500 transition-all duration-300 group shadow-sm hover:shadow-md">
+              <div className="flex justify-between items-center mb-4">
+                <span className="font-black text-sm text-slate-900 uppercase tracking-tight">{skill.name}</span>
+                <span className="text-green-500 text-[10px] font-black uppercase">{skill.category}</span>
               </div>
               
-              <div className="relative h-3 bg-slate-100 rounded-full overflow-hidden">
+              <div className="relative h-2 bg-slate-100 rounded-full overflow-hidden">
                 <div 
-                  className="absolute top-0 left-0 h-full bg-green-500 rounded-full transition-all duration-1000 ease-out shadow-[0_0_10px_rgba(34,197,94,0.5)]"
+                  className="absolute top-0 left-0 h-full bg-green-500 rounded-full transition-all duration-1000 ease-out"
                   style={{ width: `${skill.level}%` }}
                 ></div>
-              </div>
-              
-              <div className="mt-4 flex justify-between items-center">
-                <span className="text-[9px] font-black text-slate-300 uppercase tracking-widest">{skill.category}</span>
-                <span className="text-[10px] font-black text-green-600">{skill.level}%</span>
               </div>
             </div>
           ))}

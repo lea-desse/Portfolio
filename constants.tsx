@@ -231,13 +231,16 @@ export const SKILLS: Skill[] = [
   { name: 'C', level: 95, category: 'Software' },
   { name: 'Python', level: 85, category: 'Software' },
   { name: 'C++', level: 75, category: 'Software' },
-  { name: 'STM32 (H7, F4, WB, L0)', level: 90, category: 'Hardware' },
-  { name: 'ESP32', level: 85, category: 'Hardware' },
-  { name: 'CAN / CAN FD / I2C / UART', level: 95, category: 'Protocols' },
-  { name: 'Zigbee / OpenThread / NFC', level: 85, category: 'Protocols' },
-  { name: 'Jenkins / CI-CD', level: 80, category: 'Tools' },
-  { name: 'Joulescope / ST-Link V3 PWR', level: 85, category: 'Tools' },
+  { name: 'STM32 Ecosystem', level: 90, category: 'Hardware' },
+  { name: 'ESP32 / ESP-IDF', level: 85, category: 'Hardware' },
   { name: 'PCB Design & 3D Printing', level: 80, category: 'Hardware' },
+  { name: 'CAN / CAN FD', level: 95, category: 'Protocols' },
+  { name: 'I2C / UART / SPI', level: 95, category: 'Protocols' },
+  { name: 'Zigbee', level: 90, category: 'Protocols' },
+  { name: 'OpenThread', level: 90, category: 'Protocols' },
+  { name: 'NFC (ST25)', level: 85, category: 'Protocols' },
+  { name: 'Jenkins / CI-CD', level: 80, category: 'Tools' },
+  { name: 'Joulescope / ST-Link V3', level: 85, category: 'Tools' },
 ];
 
 export const PROJECTS_BASE: any[] = [
