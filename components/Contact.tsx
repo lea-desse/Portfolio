@@ -18,9 +18,9 @@ const Contact: React.FC = () => {
             <div className="inline-block px-4 py-1 mb-8 rounded-full bg-green-500/10 border border-green-500/20 text-green-400 text-[10px] font-black uppercase tracking-[0.4em]">
               Ready_To_Deploy
             </div>
-            <h2 className="text-6xl md:text-7xl font-black mb-8 text-white tracking-tighter leading-none uppercase italic pr-4">
+            <h2 className="text-6xl md:text-7xl font-black mb-8 text-white leading-none uppercase italic pr-10">
               {t('contact.title_first')} <br/>
-              <span className="gradient-text italic">{t('contact.title_second')}</span>.
+              <span className="gradient-text italic pr-4">{t('contact.title_second')}</span>.
             </h2>
             <p className="text-slate-400 text-lg mb-12 max-w-sm font-medium leading-relaxed border-l-4 border-green-500 pl-6">
               {t('contact.subtitle')}

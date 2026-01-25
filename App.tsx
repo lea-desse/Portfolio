@@ -16,7 +16,7 @@ const AppContent: React.FC = () => {
     <div className="min-h-screen bg-white text-slate-900 selection:bg-green-100 selection:text-green-900">
       <Navbar />
       
-      <main>
+      <main className="lg:pl-20">
         <Hero />
         
         <Skills />
