@@ -7,9 +7,18 @@ let genAI: GoogleGenAI | null = null;
 const getAIClient = () => {
   const apiKey = import.meta.env.VITE_GEMINI_API_KEY;
   
-  // Si la clé est vide ou n'est pas une chaîne valide
-  if (!apiKey || typeof apiKey !== 'string' || apiKey.length < 5) {
-    console.error("VITE_GEMINI_API_KEY is missing or invalid in the environment.");
+  if (!apiKey) {
+    console.error("DEBUG: VITE_GEMINI_API_KEY is undefined or empty");
+    return null;
+  }
+  
+  if (typeof apiKey !== 'string') {
+    console.error("DEBUG: VITE_GEMINI_API_KEY is not a string, type is:", typeof apiKey);
+    return null;
+  }
+
+  if (apiKey.length < 10) {
+    console.error("DEBUG: VITE_GEMINI_API_KEY is too short, length:", apiKey.length);
     return null;
   }
   
@@ -17,7 +26,7 @@ const getAIClient = () => {
     try {
       genAI = new GoogleGenAI(apiKey);
     } catch (e) {
-      console.error("Failed to initialize GoogleGenAI:", e);
+      console.error("DEBUG: Failed to initialize GoogleGenAI constructor:", e);
       return null;
     }
   }
@@ -59,10 +68,9 @@ export const askCVAssistant = async (message: string, lang: 'fr' | 'en') => {
   try {
     const client = getAIClient();
     if (!client) {
-      console.error("Gemini Client could not be initialized (Key issue)");
       return lang === 'fr' 
-        ? "L'assistant est actuellement désactivé. Vérifiez que la clé API est bien configurée dans les Secrets GitHub." 
-        : "The assistant is currently disabled. Please check the API key configuration in GitHub Secrets.";
+        ? "L'assistant est désactivé (clé API non détectée). Veuillez vérifier la configuration GitHub Secrets." 
+        : "Assistant disabled (API key not detected). Please check GitHub Secrets configuration.";
     }
 
     const model = client.getGenerativeModel({
@@ -72,11 +80,16 @@ export const askCVAssistant = async (message: string, lang: 'fr' | 'en') => {
 
     const result = await model.generateContent(message);
     const response = await result.response;
-    const text = response.text();
+    return response.text();
     
-    return text || (lang === 'fr' ? "Désolé, je rencontre une difficulté technique." : "Sorry, I'm experiencing technical difficulties.");
-  } catch (error) {
+  } catch (error: any) {
     console.error("Gemini API Error Detail:", error);
-    return lang === 'fr' ? "Je ne peux pas répondre pour le moment. (Erreur technique)" : "I cannot answer at the moment. (Technical error)";
+    // Si l'erreur contient "API Key must be set", c'est que le client a été créé avec une clé vide
+    if (error?.message?.includes("API Key must be set")) {
+        return lang === 'fr' 
+            ? "Erreur : La clé API est vide au moment de l'appel." 
+            : "Error: API Key is empty during call.";
+    }
+    return lang === 'fr' ? "Je ne peux pas répondre pour le moment." : "I cannot answer at the moment.";
   }
 };
