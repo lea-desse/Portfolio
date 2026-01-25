@@ -16,9 +16,9 @@ export const askCVAssistant = async (message: string, lang: 'fr' | 'en') => {
     }
 
     const tData = TRANSLATIONS[lang].data;
-    // Utilisation du modèle flash-1.5-latest qui est souvent plus stable pour le SDK web
+    // Modèle le plus standard
     const model = genAI.getGenerativeModel({ 
-      model: "gemini-1.5-flash-latest",
+      model: "gemini-1.5-flash",
     });
 
     // On passe les instructions système dans le prompt pour plus de compatibilité
