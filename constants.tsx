@@ -1,4 +1,3 @@
-
 import { Project, Skill, Experience } from './types';
 
 export const CV_DATA = {
@@ -24,7 +23,7 @@ export const TRANSLATIONS: any = {
       tag: "system_init",
       title_first: "LÉA",
       title_second: "DESSE",
-      subtitle: "Ingénieure Logiciel Embarqué spécialisée dans l'automatisation de tests et les protocoles bas-niveau.",
+      subtitle: "Ingénieure Logiciel Embarqué spécialisée dans les protocoles bas-niveau.",
       cta_primary: "Voir mes travaux",
       cta_secondary: "Collaborons",
       scroll: "Défiler",
@@ -69,20 +68,20 @@ export const TRANSLATIONS: any = {
       placeholder: "Demande-moi n'importe quoi..."
     },
     data: {
-      about: "Ingénieure passionnée avec plus de 5 ans d'expérience en développement de firmware. Experte en protocoles de communication (CAN, I2C, UART, Zigbee, OpenThread) et en automatisation de tests. Profil créatif avec plusieurs projets personnels alliant hardware et software.",
+      about: "Ingénieure passionnée avec plus de 5 ans d'expérience en développement de firmware. Experte en protocoles de communication (CAN, I2C, UART, Zigbee, OpenThread). Profil créatif avec plusieurs projets personnels alliant hardware et software.",
       projects: [
         {
-          title: "Motorcycle Stabilizer Wing System",
+          title: "Système d'Ailerons Stabilisateurs pour Moto",
           description: "Système de correction d'assiette en temps réel avec IMU Bosch. Architecture dual-box communiquant via CAN. Réalisation complète : design PCB, firmware, boîtiers imprimés en 3D.",
           category: "Robotique / Moto"
         },
         {
-          title: "Connected Thermal Printer",
+          title: "Imprimante Thermique Connectée",
           description: "Imprimante thermique connectée en WiFi avec authentification API et configuration Point d'Accès. Réalisation complète : design PCB, firmware ESP32, boîtier imprimé en 3D.",
           category: "IoT"
         },
         {
-          title: "NFC Badge Reader System",
+          title: "Système de Lecteur de Badges NFC",
           description: "Développement de firmware avec communication RS232 vers un serveur Python. Utilisation de STM32L0 et ST25R200.",
           category: "Sécurité"
         }
@@ -90,29 +89,29 @@ export const TRANSLATIONS: any = {
       experiences: [
         {
           company: "STMicroelectronics",
-          role: "Embedded Software Engineer",
+          role: "Ingénieure Logiciel Embarqué",
           period: "2021 - 2025",
           description: [
-            "Développement et maintenance d'outils de validation automatisés pour les piles Zigbee et OpenThread.",
-            "Intégration continue avec Jenkins et optimisation des processus de test.",
+            "Développement et maintenance d'outils de validation pour les piles Zigbee et OpenThread.",
+            "Intégration continue avec Jenkins et optimisation des processus de développement.",
             "Automatisation des mesures de consommation d'énergie (Joulescope, ST-Link V3 PWR)."
           ]
         },
         {
-          company: "Elsys Design (Contractant chez ST)",
-          role: "Embedded Software Engineer",
+          company: "Elsys Design (Prestation chez ST)",
+          role: "Ingénieure Logiciel Embarqué",
           period: "2020 - 2021",
           description: [
             "Développement de tests embarqués en C pour la validation de l'intégration OpenThread sur STM32WB.",
-            "Développement d'outils d'automatisation de tests pour Zigbee et OpenThread en Python."
+            "Développement d'outils de support pour Zigbee et OpenThread en Python."
           ]
         },
         {
           company: "Elsys Design",
-          role: "Embedded Software Intern",
+          role: "Stage Ingénieure Logiciel Embarqué",
           period: "2019",
           description: [
-            "Collecte et traitement de données de capteurs embarqués (IMU, GPS, radar) on STM32H7.",
+            "Collecte et traitement de données de capteurs embarqués (IMU, GPS, radar) sur STM32H7.",
             "Développement d'un banc de test simulant le comportement d'un véhicule (protocoles I2C, UART, CAN FD)."
           ]
         }
@@ -131,7 +130,7 @@ export const TRANSLATIONS: any = {
       tag: "system_init",
       title_first: "LÉA",
       title_second: "DESSE",
-      subtitle: "Embedded Software Engineer specializing in test automation and low-level protocols.",
+      subtitle: "Embedded Software Engineer specializing in low-level protocols.",
       cta_primary: "View my work",
       cta_secondary: "Let's collaborate",
       scroll: "Scroll",
@@ -176,7 +175,7 @@ export const TRANSLATIONS: any = {
       placeholder: "Ask me anything..."
     },
     data: {
-      about: "Passionate engineer with 5+ years of experience in firmware development. Expert in communication protocols (CAN, I2C, UART, Zigbee, OpenThread) and test automation. Creative profile with several successful personal projects combining hardware and software.",
+      about: "Passionate engineer with 5+ years of experience in firmware development. Expert in communication protocols (CAN, I2C, UART, Zigbee, OpenThread). Creative profile with several successful personal projects combining hardware and software.",
       projects: [
         {
           title: "Motorcycle Stabilizer Wing System",
@@ -200,8 +199,8 @@ export const TRANSLATIONS: any = {
           role: "Embedded Software Engineer",
           period: "2021 - 2025",
           description: [
-            "Development and maintenance of automated validation tools for Zigbee and OpenThread stacks.",
-            "Continuous integration with Jenkins and test process optimization.",
+            "Development and maintenance of validation tools for Zigbee and OpenThread stacks.",
+            "Continuous integration with Jenkins and development process optimization.",
             "Automation of power consumption measurements (Joulescope, ST-Link V3 PWR)."
           ]
         },
@@ -211,7 +210,7 @@ export const TRANSLATIONS: any = {
           period: "2020 - 2021",
           description: [
             "Development of embedded tests in C for OpenThread integration validation on STM32WB.",
-            "Development of test automation tools for Zigbee and OpenThread in Python."
+            "Development of support tools for Zigbee and OpenThread in Python."
           ]
         },
         {
