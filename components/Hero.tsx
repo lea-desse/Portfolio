@@ -11,7 +11,7 @@ const Hero: React.FC = () => {
       {/* Grilles de fond tech */}
       <div className="absolute inset-0 z-0 opacity-[0.03]" style={{ backgroundImage: 'radial-gradient(#22c55e 1px, transparent 1px)', backgroundSize: '30px 30px' }}></div>
       
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 lg:pl-24 relative z-10">
         <div className="flex flex-col md:flex-row items-center gap-16">
           <div className="flex-1 text-center md:text-left">
             <div className="inline-flex items-center gap-2 px-3 py-1 mb-6 rounded-md border border-green-100 bg-green-50 text-green-600 text-[10px] font-black uppercase tracking-[0.2em]">

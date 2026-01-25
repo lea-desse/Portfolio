@@ -12,15 +12,15 @@ const Contact: React.FC = () => {
       <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-green-500/5 rounded-full blur-[120px]"></div>
       <div className="absolute top-0 left-0 w-[300px] h-[300px] bg-green-500/5 rounded-full blur-[100px]"></div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 lg:pl-24 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-24 items-start">
           <div>
             <div className="inline-block px-4 py-1 mb-8 rounded-full bg-green-500/10 border border-green-500/20 text-green-400 text-[10px] font-black uppercase tracking-[0.4em]">
               Ready_To_Deploy
             </div>
-            <h2 className="text-6xl md:text-7xl font-black mb-8 text-white leading-none uppercase italic pr-10">
+            <h2 className="text-6xl md:text-7xl font-black mb-8 text-white leading-none uppercase italic pr-12 overflow-visible">
               {t('contact.title_first')} <br/>
-              <span className="gradient-text italic pr-4">{t('contact.title_second')}</span>.
+              <span className="gradient-text italic pr-6 inline-block">{t('contact.title_second')}</span>.
             </h2>
             <p className="text-slate-400 text-lg mb-12 max-w-sm font-medium leading-relaxed border-l-4 border-green-500 pl-6">
               {t('contact.subtitle')}
@@ -55,7 +55,7 @@ const Contact: React.FC = () => {
             {/* Background design */}
             <div className="absolute top-0 right-0 w-32 h-32 bg-green-500/10 rounded-full blur-3xl -mr-16 -mt-16"></div>
             
-            <h3 className="text-3xl font-black mb-10 text-white tracking-tight uppercase italic pr-4">{t('contact.form_title')}</h3>
+            <h3 className="text-3xl font-black mb-10 text-white tracking-tight uppercase italic pr-6 overflow-visible">{t('contact.form_title')}</h3>
             <form className="space-y-8" onSubmit={(e) => e.preventDefault()}>
               <div className="relative">
                 <label className="block text-[9px] font-black text-slate-500 uppercase tracking-[0.2em] mb-3 ml-1">{t('contact.label_name')}</label>
