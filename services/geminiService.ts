@@ -59,7 +59,7 @@ export const askCVAssistant = async (message: string, lang: 'fr' | 'en') => {
 
     const response = await client.models.generateContent({
       model: 'gemini-1.5-flash',
-      contents: message,
+      contents: [{ role: 'user', parts: [{ text: message }] }],
       config: {
         systemInstruction: getCVContext(lang),
         temperature: 0.7,
@@ -67,6 +67,10 @@ export const askCVAssistant = async (message: string, lang: 'fr' | 'en') => {
     });
     return response.text || (lang === 'fr' ? "Désolé, je rencontre une difficulté technique." : "Sorry, I'm experiencing technical difficulties.");
   } catch (error) {
+    console.error("Gemini API Error Detail:", error);
+    return lang === 'fr' ? "Je ne peux pas répondre pour le moment. (Erreur technique)" : "I cannot answer at the moment. (Technical error)";
+  }
+};
     console.error("Gemini Error:", error);
     return lang === 'fr' ? "Je ne peux pas répondre pour le moment." : "I cannot answer at the moment.";
   }
