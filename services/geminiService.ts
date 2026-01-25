@@ -2,7 +2,7 @@ import { GoogleGenAI } from "@google/genai";
 import { CV_DATA, SKILLS, TRANSLATIONS } from "../constants";
 
 // Initialize AI lazily to avoid crashing if key is missing
-let ai: GoogleGenAI | null = null;
+let genAI: GoogleGenAI | null = null;
 
 const getAIClient = () => {
   const apiKey = import.meta.env.VITE_GEMINI_API_KEY;
@@ -10,10 +10,10 @@ const getAIClient = () => {
     console.error("VITE_GEMINI_API_KEY is not defined");
     return null;
   }
-  if (!ai) {
-    ai = new GoogleGenAI({ apiKey });
+  if (!genAI) {
+    genAI = new GoogleGenAI(apiKey);
   }
-  return ai;
+  return genAI;
 };
 
 const getCVContext = (lang: 'fr' | 'en') => {
@@ -56,15 +56,17 @@ export const askCVAssistant = async (message: string, lang: 'fr' | 'en') => {
         : "The assistant is currently disabled (missing API key). Please contact Léa directly.";
     }
 
-    const response = await client.models.generateContent({
-      model: 'gemini-1.5-flash',
-      contents: [{ role: 'user', parts: [{ text: message }] }],
-      config: {
-        systemInstruction: getCVContext(lang),
-        temperature: 0.7,
-      },
+    // Correct way to use the SDK
+    const model = client.getGenerativeModel({
+      model: "gemini-1.5-flash",
+      systemInstruction: getCVContext(lang),
     });
-    return response.text || (lang === 'fr' ? "Désolé, je rencontre une difficulté technique." : "Sorry, I'm experiencing technical difficulties.");
+
+    const result = await model.generateContent(message);
+    const response = await result.response;
+    const text = response.text();
+    
+    return text || (lang === 'fr' ? "Désolé, je rencontre une difficulté technique." : "Sorry, I'm experiencing technical difficulties.");
   } catch (error) {
     console.error("Gemini API Error Detail:", error);
     return lang === 'fr' ? "Je ne peux pas répondre pour le moment. (Erreur technique)" : "I cannot answer at the moment. (Technical error)";
