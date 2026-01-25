@@ -30,9 +30,9 @@ const AppContent: React.FC = () => {
 
       <Assistant />
       
-      <div className="fixed left-6 bottom-6 hidden lg:flex flex-col items-center gap-4 z-40">
+      <div className="fixed left-8 bottom-6 hidden lg:flex flex-col items-center gap-4 z-40">
         <div className="w-px h-24 bg-gradient-to-b from-transparent via-green-400 to-green-600"></div>
-        <span className="[writing-mode:vertical-lr] text-[9px] uppercase tracking-[0.5em] text-green-600 font-black italic">{t('hero.scroll')}</span>
+        <span className="[writing-mode:vertical-lr] text-[9px] uppercase tracking-[0.5em] text-green-600 font-black italic pr-2">{t('hero.scroll')}</span>
       </div>
     </div>
   );

@@ -18,7 +18,7 @@ const Contact: React.FC = () => {
             <div className="inline-block px-4 py-1 mb-8 rounded-full bg-green-500/10 border border-green-500/20 text-green-400 text-[10px] font-black uppercase tracking-[0.4em]">
               Ready_To_Deploy
             </div>
-            <h2 className="text-6xl md:text-7xl font-black mb-8 text-white tracking-tighter leading-none uppercase italic">
+            <h2 className="text-6xl md:text-7xl font-black mb-8 text-white tracking-tighter leading-none uppercase italic pr-4">
               {t('contact.title_first')} <br/>
               <span className="gradient-text italic">{t('contact.title_second')}</span>.
             </h2>
@@ -55,7 +55,7 @@ const Contact: React.FC = () => {
             {/* Background design */}
             <div className="absolute top-0 right-0 w-32 h-32 bg-green-500/10 rounded-full blur-3xl -mr-16 -mt-16"></div>
             
-            <h3 className="text-3xl font-black mb-10 text-white tracking-tight uppercase italic">{t('contact.form_title')}</h3>
+            <h3 className="text-3xl font-black mb-10 text-white tracking-tight uppercase italic pr-4">{t('contact.form_title')}</h3>
             <form className="space-y-8" onSubmit={(e) => e.preventDefault()}>
               <div className="relative">
                 <label className="block text-[9px] font-black text-slate-500 uppercase tracking-[0.2em] mb-3 ml-1">{t('contact.label_name')}</label>
