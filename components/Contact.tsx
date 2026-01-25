@@ -1,10 +1,38 @@
 
-import React from 'react';
+import React, { useState } from 'react';
 import { CV_DATA } from '../constants';
 import { useLanguage } from '../context/LanguageContext';
 
 const Contact: React.FC = () => {
   const { t } = useLanguage();
+  const [status, setStatus] = useState<'idle' | 'sending' | 'success' | 'error'>('idle');
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setStatus('sending');
+    
+    const form = e.currentTarget;
+    const data = new FormData(form);
+
+    try {
+      const response = await fetch("https://formspree.io/f/YOUR_ID_HERE", {
+        method: "POST",
+        body: data,
+        headers: {
+          'Accept': 'application/json'
+        }
+      });
+      
+      if (response.ok) {
+        setStatus('success');
+        form.reset();
+      } else {
+        setStatus('error');
+      }
+    } catch (error) {
+      setStatus('error');
+    }
+  };
 
   return (
     <footer id="contact" className="py-32 bg-slate-950 relative border-t border-slate-900 overflow-hidden">
@@ -56,28 +84,49 @@ const Contact: React.FC = () => {
             <div className="absolute top-0 right-0 w-32 h-32 bg-green-500/10 rounded-full blur-3xl -mr-16 -mt-16"></div>
             
             <h3 className="text-3xl font-black mb-10 text-white tracking-tight uppercase italic pr-6 overflow-visible">{t('contact.form_title')}</h3>
-            <form className="space-y-8" onSubmit={(e) => e.preventDefault()}>
-              <div className="relative">
-                <label className="block text-[9px] font-black text-slate-500 uppercase tracking-[0.2em] mb-3 ml-1">{t('contact.label_name')}</label>
-                <input 
-                  type="text" 
-                  className="w-full bg-slate-950 border-2 border-slate-800 rounded-2xl px-6 py-5 focus:outline-none focus:border-green-500 transition-all font-black text-sm text-white placeholder-slate-700" 
-                  placeholder={t('contact.placeholder_name')} 
-                />
+            
+            {status === 'success' ? (
+              <div className="bg-green-500/10 border-2 border-green-500 rounded-2xl p-8 text-center animate-in fade-in zoom-in duration-500">
+                <div className="w-16 h-16 bg-green-500 text-slate-900 rounded-full flex items-center justify-center mx-auto mb-6 shadow-[0_0_30px_rgba(34,197,94,0.4)]">
+                  <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M5 13l4 4L19 7"></path></svg>
+                </div>
+                <p className="text-white font-black uppercase tracking-widest mb-2">Message Transmitted</p>
+                <p className="text-slate-400 text-xs font-medium">Léa vous répondra dans les plus brefs délais.</p>
+                <button onClick={() => setStatus('idle')} className="mt-8 text-green-500 text-[10px] font-black uppercase tracking-widest hover:text-white transition-colors">Envoyer un autre message</button>
               </div>
-              <div className="relative">
-                <label className="block text-[9px] font-black text-slate-500 uppercase tracking-[0.2em] mb-3 ml-1">{t('contact.label_message')}</label>
-                <textarea 
-                  rows={4} 
-                  className="w-full bg-slate-950 border-2 border-slate-800 rounded-2xl px-6 py-5 focus:outline-none focus:border-green-500 transition-all font-black text-sm text-white placeholder-slate-700" 
-                  placeholder={t('contact.placeholder_message')}
-                ></textarea>
-              </div>
-              <button type="submit" className="w-full py-6 bg-green-500 hover:bg-green-400 text-slate-950 rounded-2xl font-black uppercase tracking-[0.2em] text-[11px] transition-all shadow-[0_0_30px_rgba(34,197,94,0.2)] hover:shadow-green-500/40 active:scale-95 flex items-center justify-center gap-3 group/btn">
-                <span>{t('contact.send')}</span>
-                <svg className="w-5 h-5 transition-transform group-hover/btn:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M13 5l7 7-7 7M5 5l7 7-7 7"></path></svg>
-              </button>
-            </form>
+            ) : (
+              <form className="space-y-8" onSubmit={handleSubmit}>
+                <div className="relative">
+                  <label className="block text-[9px] font-black text-slate-500 uppercase tracking-[0.2em] mb-3 ml-1">{t('contact.label_name')}</label>
+                  <input 
+                    required
+                    name="name"
+                    type="text" 
+                    className="w-full bg-slate-950 border-2 border-slate-800 rounded-2xl px-6 py-5 focus:outline-none focus:border-green-500 transition-all font-black text-sm text-white placeholder-slate-700" 
+                    placeholder={t('contact.placeholder_name')} 
+                  />
+                </div>
+                <div className="relative">
+                  <label className="block text-[9px] font-black text-slate-500 uppercase tracking-[0.2em] mb-3 ml-1">{t('contact.label_message')}</label>
+                  <textarea 
+                    required
+                    name="message"
+                    rows={4} 
+                    className="w-full bg-slate-950 border-2 border-slate-800 rounded-2xl px-6 py-5 focus:outline-none focus:border-green-500 transition-all font-black text-sm text-white placeholder-slate-700" 
+                    placeholder={t('contact.placeholder_message')}
+                  ></textarea>
+                </div>
+                <button 
+                  disabled={status === 'sending'}
+                  type="submit" 
+                  className="w-full py-6 bg-green-500 hover:bg-green-400 disabled:bg-slate-800 disabled:text-slate-600 text-slate-950 rounded-2xl font-black uppercase tracking-[0.2em] text-[11px] transition-all shadow-[0_0_30px_rgba(34,197,94,0.2)] hover:shadow-green-500/40 active:scale-95 flex items-center justify-center gap-3 group/btn"
+                >
+                  <span>{status === 'sending' ? 'Transmission...' : t('contact.send')}</span>
+                  {status !== 'sending' && <svg className="w-5 h-5 transition-transform group-hover/btn:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M13 5l7 7-7 7M5 5l7 7-7 7"></path></svg>}
+                </button>
+                {status === 'error' && <p className="text-red-500 text-[10px] font-black text-center uppercase tracking-widest">Erreur de transmission. Réessayez plus tard.</p>}
+              </form>
+            )}
           </div>
         </div>
         
