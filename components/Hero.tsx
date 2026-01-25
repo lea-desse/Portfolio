@@ -39,14 +39,11 @@ const Hero: React.FC = () => {
             <div className="absolute inset-0 border-2 border-dashed border-green-200 rounded-full animate-[spin_20s_linear_infinite]"></div>
             
             <div className="absolute inset-4 bg-white rounded-3xl shadow-2xl overflow-hidden group">
-              <img 
-                src="/profile.jpg" 
-                alt="Léa Desse" 
-                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                onError={(e) => {
-                  (e.target as HTMLImageElement).src = "https://r.jina.ai/i/6f90656e174b4550882104112674e76d";
-                }}
-              />
+            <img 
+              src="./profile.jpg" 
+              alt="Léa Desse" 
+              className="w-full h-full object-cover"
+            />
               <div className="absolute inset-0 bg-gradient-to-t from-green-900/40 to-transparent"></div>
             </div>
 
