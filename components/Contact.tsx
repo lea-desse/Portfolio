@@ -107,6 +107,16 @@ const Contact: React.FC = () => {
                   />
                 </div>
                 <div className="relative">
+                  <label className="block text-[9px] font-black text-slate-500 uppercase tracking-[0.2em] mb-3 ml-1">{t('contact.label_email')}</label>
+                  <input 
+                    required
+                    name="email"
+                    type="email" 
+                    className="w-full bg-slate-950 border-2 border-slate-800 rounded-2xl px-6 py-5 focus:outline-none focus:border-green-500 transition-all font-black text-sm text-white placeholder-slate-700" 
+                    placeholder={t('contact.placeholder_email')} 
+                  />
+                </div>
+                <div className="relative">
                   <label className="block text-[9px] font-black text-slate-500 uppercase tracking-[0.2em] mb-3 ml-1">{t('contact.label_message')}</label>
                   <textarea 
                     required

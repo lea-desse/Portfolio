@@ -56,8 +56,10 @@ export const TRANSLATIONS: any = {
       subtitle: "Basée à Mougins, je suis disponible pour des projets innovants en électronique et logiciel embarqué.",
       form_title: "Message direct",
       label_name: "Nom complet",
+      label_email: "Adresse Email",
       label_message: "Message",
       placeholder_name: "Ex: Jean Dupont",
+      placeholder_email: "jean.dupont@exemple.com",
       placeholder_message: "Parlez-moi de votre projet...",
       send: "Envoyer",
       footer_copy: "© 2025 Léa Desse — Ingénieure Systèmes"
@@ -163,8 +165,10 @@ export const TRANSLATIONS: any = {
       subtitle: "Based in Mougins, France, I am available for innovative projects in electronics and embedded software.",
       form_title: "Direct message",
       label_name: "Full name",
+      label_email: "Email Address",
       label_message: "Message",
       placeholder_name: "Ex: John Doe",
+      placeholder_email: "john.doe@example.com",
       placeholder_message: "Tell me about your project...",
       send: "Send",
       footer_copy: "© 2025 Léa Desse — Systems Engineer"
