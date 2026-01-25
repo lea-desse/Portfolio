@@ -7,9 +7,9 @@ const Experience: React.FC = () => {
   const tExperiences = t('data.experiences');
 
   return (
-    <section id="experience" className="py-32 bg-slate-950 relative overflow-hidden">
+    <section id="experience" className="py-32 bg-slate-900 relative overflow-hidden">
       {/* Background decoration: Neon grid or circuit-like lines */}
-      <div className="absolute inset-0 opacity-[0.05] pointer-events-none" 
+      <div className="absolute inset-0 opacity-[0.03] pointer-events-none" 
            style={{ backgroundImage: 'linear-gradient(#22c55e 1px, transparent 1px), linear-gradient(90deg, #22c55e 1px, transparent 1px)', backgroundSize: '50px 50px' }}>
       </div>
       

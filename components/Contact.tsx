@@ -35,7 +35,7 @@ const Contact: React.FC = () => {
   };
 
   return (
-    <footer id="contact" className="py-32 bg-slate-950 relative border-t border-slate-900 overflow-hidden">
+    <footer id="contact" className="py-32 bg-black relative border-t border-slate-900 overflow-hidden">
       {/* Background glow effects */}
       <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-green-500/5 rounded-full blur-[120px]"></div>
       <div className="absolute top-0 left-0 w-[300px] h-[300px] bg-green-500/5 rounded-full blur-[100px]"></div>
