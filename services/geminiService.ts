@@ -6,12 +6,20 @@ let genAI: GoogleGenAI | null = null;
 
 const getAIClient = () => {
   const apiKey = import.meta.env.VITE_GEMINI_API_KEY;
-  if (!apiKey) {
-    console.error("VITE_GEMINI_API_KEY is not defined");
+  
+  // Si la clé est vide ou n'est pas une chaîne valide
+  if (!apiKey || typeof apiKey !== 'string' || apiKey.length < 5) {
+    console.error("VITE_GEMINI_API_KEY is missing or invalid in the environment.");
     return null;
   }
+  
   if (!genAI) {
-    genAI = new GoogleGenAI(apiKey);
+    try {
+      genAI = new GoogleGenAI(apiKey);
+    } catch (e) {
+      console.error("Failed to initialize GoogleGenAI:", e);
+      return null;
+    }
   }
   return genAI;
 };
@@ -51,12 +59,12 @@ export const askCVAssistant = async (message: string, lang: 'fr' | 'en') => {
   try {
     const client = getAIClient();
     if (!client) {
+      console.error("Gemini Client could not be initialized (Key issue)");
       return lang === 'fr' 
-        ? "L'assistant est actuellement désactivé (clé API manquante). Veuillez contacter Léa directement."
-        : "The assistant is currently disabled (missing API key). Please contact Léa directly.";
+        ? "L'assistant est actuellement désactivé. Vérifiez que la clé API est bien configurée dans les Secrets GitHub." 
+        : "The assistant is currently disabled. Please check the API key configuration in GitHub Secrets.";
     }
 
-    // Correct way to use the SDK
     const model = client.getGenerativeModel({
       model: "gemini-1.5-flash",
       systemInstruction: getCVContext(lang),
