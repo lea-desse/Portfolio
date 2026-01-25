@@ -1,4 +1,3 @@
-
 import { GoogleGenAI } from "@google/genai";
 import { CV_DATA, SKILLS, TRANSLATIONS } from "../constants";
 
@@ -53,7 +52,7 @@ export const askCVAssistant = async (message: string, lang: 'fr' | 'en') => {
     const client = getAIClient();
     if (!client) {
       return lang === 'fr' 
-        ? "L'assistant est actuellement désactivé (clé API manquante). Veuillez contacter Léa directement." 
+        ? "L'assistant est actuellement désactivé (clé API manquante). Veuillez contacter Léa directement."
         : "The assistant is currently disabled (missing API key). Please contact Léa directly.";
     }
 
@@ -69,9 +68,5 @@ export const askCVAssistant = async (message: string, lang: 'fr' | 'en') => {
   } catch (error) {
     console.error("Gemini API Error Detail:", error);
     return lang === 'fr' ? "Je ne peux pas répondre pour le moment. (Erreur technique)" : "I cannot answer at the moment. (Technical error)";
-  }
-};
-    console.error("Gemini Error:", error);
-    return lang === 'fr' ? "Je ne peux pas répondre pour le moment." : "I cannot answer at the moment.";
   }
 };
