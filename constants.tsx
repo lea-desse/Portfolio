@@ -5,8 +5,7 @@ export const CV_DATA = {
   email: "lea.desse@hotmail.fr",
   location: "Mougins, France",
   socials: {
-    linkedin: "https://linkedin.com/in/leadesse",
-    github: "https://github.com/leadesse"
+    linkedin: "https://linkedin.com/in/leadesse"
   }
 };
 

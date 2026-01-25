@@ -68,11 +68,8 @@ const Contact: React.FC = () => {
               </a>
               
               <div className="flex gap-4">
-                <a href={CV_DATA.socials.linkedin} target="_blank" rel="noopener noreferrer" className="flex-1 flex items-center justify-center p-6 rounded-3xl bg-white border border-slate-200 hover:border-green-500 transition-all font-black text-[10px] uppercase tracking-widest text-slate-900 hover:text-green-600 shadow-sm hover:shadow-xl">
+                <a href={CV_DATA.socials.linkedin} target="_blank" rel="noopener noreferrer" className="w-full flex items-center justify-center p-6 rounded-3xl bg-white border border-slate-200 hover:border-green-500 transition-all font-black text-[10px] uppercase tracking-widest text-slate-900 hover:text-green-600 shadow-sm hover:shadow-xl">
                   LinkedIn_Profile
-                </a>
-                <a href={CV_DATA.socials.github} target="_blank" rel="noopener noreferrer" className="flex-1 flex items-center justify-center p-6 rounded-3xl bg-white border border-slate-200 hover:border-green-500 transition-all font-black text-[10px] uppercase tracking-widest text-slate-900 hover:text-green-600 shadow-sm hover:shadow-xl">
-                  GitHub_Lab
                 </a>
               </div>
             </div>

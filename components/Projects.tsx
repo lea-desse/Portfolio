@@ -65,12 +65,6 @@ const ProjectCard: React.FC<{ project: any, tData: any }> = ({ project, tData })
         </p>
         <div className="flex items-center justify-between mt-auto pt-6 border-t border-slate-800">
           <span className="text-[10px] text-green-500 font-black uppercase tracking-widest">{tData.category}</span>
-          <button className="text-white text-[10px] font-black uppercase tracking-widest flex items-center gap-2 group/btn">
-            {t('projects.details')}
-            <span className="w-6 h-6 bg-green-500 rounded flex items-center justify-center group-hover/btn:translate-x-1 transition-transform">
-                <svg className="w-3 h-3 text-slate-900" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M9 5l7 7-7 7"></path></svg>
-            </span>
-          </button>
         </div>
       </div>
     </div>
@@ -97,9 +91,6 @@ const Projects: React.FC = () => {
               {t('projects.subtitle')}
             </p>
           </div>
-          <a href="#" className="border-2 border-white/10 hover:border-green-500 text-white px-8 py-3 rounded-lg font-black text-[10px] uppercase tracking-widest transition-all">
-            {t('projects.github_link')}
-          </a>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">

@@ -16,8 +16,8 @@ const Navbar: React.FC = () => {
           
           <div className="hidden md:flex items-center space-x-10">
             <a href="#about" className="text-slate-400 hover:text-green-400 transition-colors font-black text-[10px] uppercase tracking-[0.2em]">{t('nav.about')}</a>
-            <a href="#skills" className="text-slate-400 hover:text-green-400 transition-colors font-black text-[10px] uppercase tracking-[0.2em]">{t('nav.skills')}</a>
             <a href="#projects" className="text-slate-400 hover:text-green-400 transition-colors font-black text-[10px] uppercase tracking-[0.2em]">{t('nav.projects')}</a>
+            <a href="#skills" className="text-slate-400 hover:text-green-400 transition-colors font-black text-[10px] uppercase tracking-[0.2em]">{t('nav.skills')}</a>
             <a href="#experience" className="text-slate-400 hover:text-green-400 transition-colors font-black text-[10px] uppercase tracking-[0.2em]">{t('nav.experience')}</a>
             
             <div className="flex items-center gap-1 p-1 bg-slate-800 rounded-lg border border-slate-700">
