@@ -138,16 +138,6 @@ const Contact: React.FC = () => {
         
         <div className="mt-40 pt-12 border-t border-slate-100 flex flex-col md:flex-row justify-between items-center gap-8 text-slate-400 text-[9px] font-black uppercase tracking-[0.4em]">
           <p>{t('contact.footer_copy')}</p>
-          <div className="flex gap-12">
-            <a href="#" className="hover:text-green-600 transition-colors flex items-center gap-2">
-              <span className="w-1 h-1 bg-green-500 rounded-full"></span>
-              Documentation
-            </a>
-            <a href="#" className="hover:text-green-600 transition-colors flex items-center gap-2">
-              <span className="w-1 h-1 bg-green-500 rounded-full"></span>
-              Build_v2.5.0
-            </a>
-          </div>
         </div>
       </div>
     </footer>

@@ -4,6 +4,7 @@ export const CV_DATA = {
   name: "Léa Desse",
   email: "lea.desse@hotmail.fr",
   location: "Mougins, France",
+  cv_file: "CV_Lea_Desse.pdf",
   socials: {
     linkedin: "https://fr.linkedin.com/in/l%C3%A9a-desse-3446613a6"
   }
@@ -25,6 +26,7 @@ export const TRANSLATIONS: any = {
       subtitle: "Ingénieure Logiciel Embarqué spécialisée dans les protocoles bas-niveau.",
       cta_primary: "Voir mes travaux",
       cta_secondary: "Collaborons",
+      cta_cv: "Télécharger CV",
       scroll: "Défiler",
       status: "DISPONIBLE"
     },
@@ -61,7 +63,7 @@ export const TRANSLATIONS: any = {
       placeholder_email: "jean.dupont@exemple.com",
       placeholder_message: "Parlez-moi de votre projet...",
       send: "Envoyer",
-      footer_copy: "© 2025 Léa Desse — Ingénieure Systèmes"
+      footer_copy: "© 2026 Léa Desse — Ingénieure Systèmes"
     },
     assistant: {
       welcome: "Salut ! Je suis Kernel, l'assistant de Léa. Pose-moi n'importe quelle question sur son parcours !",
@@ -91,7 +93,7 @@ export const TRANSLATIONS: any = {
         {
           company: "STMicroelectronics",
           role: "Ingénieure Logiciel Embarqué",
-          period: "2021 - 2025",
+          period: "2021 - 2026",
           description: [
             "Développement et maintenance d'outils de validation pour les piles Zigbee et OpenThread.",
             "Intégration continue avec Jenkins et optimisation des processus de développement.",
@@ -134,6 +136,7 @@ export const TRANSLATIONS: any = {
       subtitle: "Embedded Software Engineer specializing in low-level protocols.",
       cta_primary: "View my work",
       cta_secondary: "Let's collaborate",
+      cta_cv: "Download CV",
       scroll: "Scroll",
       status: "OPEN TO WORK"
     },
@@ -170,7 +173,7 @@ export const TRANSLATIONS: any = {
       placeholder_email: "john.doe@example.com",
       placeholder_message: "Tell me about your project...",
       send: "Send",
-      footer_copy: "© 2025 Léa Desse — Systems Engineer"
+      footer_copy: "© 2026 Léa Desse — Systems Engineer"
     },
     assistant: {
       welcome: "Hi! I'm Kernel, Léa's AI buddy. Ask me anything about her work!",
@@ -200,7 +203,7 @@ export const TRANSLATIONS: any = {
         {
           company: "STMicroelectronics",
           role: "Embedded Software Engineer",
-          period: "2021 - 2025",
+          period: "2021 - 2026",
           description: [
             "Development and maintenance of validation tools for Zigbee and OpenThread stacks.",
             "Continuous integration with Jenkins and development process optimization.",
