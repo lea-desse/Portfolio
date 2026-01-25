@@ -15,8 +15,8 @@ export const askCVAssistant = async (message: string, lang: 'fr' | 'en') => {
       genAI = new GoogleGenerativeAI(apiKey);
     }
 
-    // On utilise le nom le plus simple possible
-    const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
+    // Utilisation du modèle Gemini 3 Flash Preview disponible en 2026
+    const model = genAI.getGenerativeModel({ model: "gemini-3-flash-preview" });
 
     const tData = TRANSLATIONS[lang].data;
     const prompt = `Tu es Kernel, l'assistant de ${CV_DATA.name}. Bio: ${tData.about}. Réponds à : ${message}`;
