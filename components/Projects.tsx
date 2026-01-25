@@ -51,6 +51,14 @@ const ProjectCard: React.FC<{ project: any, tData: any }> = ({ project, tData })
           </div>
         )}
         <div className="absolute top-4 left-4 flex gap-2">
+          {project.tags.map((tag: string) => (
+            <span key={tag} className="px-2 py-1 bg-green-500/90 text-white text-[8px] font-black rounded uppercase tracking-tighter backdrop-blur-sm">
+              {tag}
+            </span>
+          ))}
+        </div>
+      </div>
+      <div className="p-8 flex flex-col flex-1">
         <h3 className="text-2xl font-black mb-4 text-white uppercase tracking-tight leading-tight">{tData.title}</h3>
         <p className="text-slate-400 text-sm leading-relaxed mb-8 flex-1 font-medium">
           {tData.description}
