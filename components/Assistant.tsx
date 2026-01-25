@@ -31,7 +31,15 @@ const Assistant: React.FC = () => {
     setMessages(prev => [...prev, { role: 'user', text: userMsg }]);
     setIsLoading(true);
 
-    const aiResponse = await askCVAssistant(userMsg, language);
+    // Préparation de l'historique (on exclut le message de bienvenue initial pour ne pas perturber l'IA)
+    const chatHistory = messages
+      .filter(m => m.text !== t('assistant.welcome'))
+      .map(m => ({
+        role: m.role === 'user' ? ('user' as const) : ('model' as const),
+        parts: [{ text: m.text }]
+      }));
+
+    const aiResponse = await askCVAssistant(userMsg, language, chatHistory);
     
     setMessages(prev => [...prev, { role: 'assistant', text: aiResponse }]);
     setIsLoading(false);
