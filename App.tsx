@@ -19,9 +19,9 @@ const AppContent: React.FC = () => {
       <main>
         <Hero />
         
-        <Skills />
-        
         <Projects />
+        
+        <Skills />
         
         <Experience />
         

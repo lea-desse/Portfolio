@@ -82,17 +82,22 @@ const Projects: React.FC = () => {
   const tProjects = t('data.projects');
 
   return (
-    <section id="projects" className="py-24 bg-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 lg:pl-24">
+    <section id="projects" className="py-24 bg-slate-900 relative overflow-hidden">
+      {/* Subtle grid for dark mode */}
+      <div className="absolute inset-0 opacity-[0.02] pointer-events-none" 
+           style={{ backgroundImage: 'radial-gradient(#22c55e 1px, transparent 1px)', backgroundSize: '40px 40px' }}>
+      </div>
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 lg:pl-24 relative z-10">
         <div className="flex flex-col md:flex-row justify-between items-end mb-20 gap-8">
           <div>
-            <h2 className="text-6xl font-black mb-4 text-slate-900 tracking-tighter uppercase">{t('projects.title')}</h2>
+            <h2 className="text-6xl font-black mb-4 text-white tracking-tighter uppercase">{t('projects.title')}</h2>
             <div className="w-24 h-2 bg-green-500 mb-6"></div>
-            <p className="text-slate-500 font-medium max-w-xl">
+            <p className="text-slate-400 font-medium max-w-xl">
               {t('projects.subtitle')}
             </p>
           </div>
-          <a href="#" className="bg-slate-900 text-white px-8 py-3 rounded-lg font-black text-[10px] uppercase tracking-widest hover:bg-green-600 transition-colors">
+          <a href="#" className="border-2 border-white/10 hover:border-green-500 text-white px-8 py-3 rounded-lg font-black text-[10px] uppercase tracking-widest transition-all">
             {t('projects.github_link')}
           </a>
         </div>
