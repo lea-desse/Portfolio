@@ -2,15 +2,21 @@ import { defineConfig, loadEnv } from 'vite';
 import react from '@vitejs/plugin-react';
 
 export default defineConfig(({ mode }) => {
-  // Charge les variables d'environnement (y compris celles du shell de GitHub)
+  // Charge toutes les variables d'environnement
   const env = loadEnv(mode, process.cwd(), '');
+  const apiKey = env.VITE_GEMINI_API_KEY || process.env.VITE_GEMINI_API_KEY;
   
+  console.log('--- Build Info ---');
+  console.log('Mode:', mode);
+  console.log('API Key detected (length):', apiKey ? apiKey.length : 'NOT FOUND');
+  console.log('------------------');
+
   return {
     plugins: [react()],
     base: '/Portfolio/',
     define: {
-      // Force l'injection de la clé API pour être sûr qu'elle soit présente dans le build
-      'import.meta.env.VITE_GEMINI_API_KEY': JSON.stringify(env.VITE_GEMINI_API_KEY || process.env.VITE_GEMINI_API_KEY),
+      // On utilise un nom personnalisé qui ne sera pas touché par Vite
+      '__APP_GEMINI_API_KEY__': JSON.stringify(apiKey),
     },
   };
 });

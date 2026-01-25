@@ -1,24 +1,21 @@
 import { GoogleGenAI } from "@google/genai";
 import { CV_DATA, SKILLS, TRANSLATIONS } from "../constants";
 
+// Déclaration pour TypeScript
+declare global {
+  const __APP_GEMINI_API_KEY__: string | undefined;
+}
+
 // Initialize AI lazily to avoid crashing if key is missing
 let genAI: GoogleGenAI | null = null;
 
 const getAIClient = () => {
-  const apiKey = import.meta.env.VITE_GEMINI_API_KEY;
+  // On cherche d'abord dans notre variable personnalisée, puis dans import.meta.env
+  const apiKey = (typeof __APP_GEMINI_API_KEY__ !== 'undefined' && __APP_GEMINI_API_KEY__) 
+                 || import.meta.env.VITE_GEMINI_API_KEY;
   
   if (!apiKey) {
-    console.error("DEBUG: VITE_GEMINI_API_KEY is undefined or empty");
-    return null;
-  }
-  
-  if (typeof apiKey !== 'string') {
-    console.error("DEBUG: VITE_GEMINI_API_KEY is not a string, type is:", typeof apiKey);
-    return null;
-  }
-
-  if (apiKey.length < 10) {
-    console.error("DEBUG: VITE_GEMINI_API_KEY is too short, length:", apiKey.length);
+    console.error("DEBUG: No API Key found in __APP_GEMINI_API_KEY__ or import.meta.env");
     return null;
   }
   
@@ -69,8 +66,8 @@ export const askCVAssistant = async (message: string, lang: 'fr' | 'en') => {
     const client = getAIClient();
     if (!client) {
       return lang === 'fr' 
-        ? "L'assistant est désactivé (clé API non détectée). Veuillez vérifier la configuration GitHub Secrets." 
-        : "Assistant disabled (API key not detected). Please check GitHub Secrets configuration.";
+        ? "L'assistant est désactivé (problème de configuration de clé)." 
+        : "Assistant disabled (API key configuration issue).";
     }
 
     const model = client.getGenerativeModel({
@@ -84,7 +81,6 @@ export const askCVAssistant = async (message: string, lang: 'fr' | 'en') => {
     
   } catch (error: any) {
     console.error("Gemini API Error Detail:", error);
-    // Si l'erreur contient "API Key must be set", c'est que le client a été créé avec une clé vide
     if (error?.message?.includes("API Key must be set")) {
         return lang === 'fr' 
             ? "Erreur : La clé API est vide au moment de l'appel." 
