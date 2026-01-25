@@ -20,7 +20,7 @@ const Contact: React.FC = () => {
             </div>
             <h2 className="text-6xl md:text-7xl font-black mb-8 text-white leading-none uppercase italic pr-12 overflow-visible">
               {t('contact.title_first')} <br/>
-              <span className="gradient-text italic pr-6 inline-block">{t('contact.title_second')}</span>.
+              <span className="gradient-text italic pr-6 inline-block">{t('contact.title_second')}</span>
             </h2>
             <p className="text-slate-400 text-lg mb-12 max-w-sm font-medium leading-relaxed border-l-4 border-green-500 pl-6">
               {t('contact.subtitle')}
