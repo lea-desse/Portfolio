@@ -2,7 +2,20 @@
 import { GoogleGenAI } from "@google/genai";
 import { CV_DATA, SKILLS, TRANSLATIONS } from "../constants";
 
-const ai = new GoogleGenAI({ apiKey: import.meta.env.VITE_GEMINI_API_KEY });
+// Initialize AI lazily to avoid crashing if key is missing
+let ai: GoogleGenAI | null = null;
+
+const getAIClient = () => {
+  const apiKey = import.meta.env.VITE_GEMINI_API_KEY;
+  if (!apiKey) {
+    console.error("VITE_GEMINI_API_KEY is not defined");
+    return null;
+  }
+  if (!ai) {
+    ai = new GoogleGenAI({ apiKey });
+  }
+  return ai;
+};
 
 const getCVContext = (lang: 'fr' | 'en') => {
   const tData = TRANSLATIONS[lang].data;
@@ -37,8 +50,15 @@ Always respond in ${lang === 'fr' ? 'French' : 'English'}.
 
 export const askCVAssistant = async (message: string, lang: 'fr' | 'en') => {
   try {
-    const response = await ai.models.generateContent({
-      model: 'gemini-3-flash-preview',
+    const client = getAIClient();
+    if (!client) {
+      return lang === 'fr' 
+        ? "L'assistant est actuellement désactivé (clé API manquante). Veuillez contacter Léa directement." 
+        : "The assistant is currently disabled (missing API key). Please contact Léa directly.";
+    }
+
+    const response = await client.models.generateContent({
+      model: 'gemini-1.5-flash',
       contents: message,
       config: {
         systemInstruction: getCVContext(lang),
