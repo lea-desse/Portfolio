@@ -2,7 +2,7 @@
 import { GoogleGenAI } from "@google/genai";
 import { CV_DATA, SKILLS, TRANSLATIONS } from "../constants";
 
-const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
+const ai = new GoogleGenAI({ apiKey: import.meta.env.VITE_GEMINI_API_KEY });
 
 const getCVContext = (lang: 'fr' | 'en') => {
   const tData = TRANSLATIONS[lang].data;

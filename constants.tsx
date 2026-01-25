@@ -27,7 +27,8 @@ export const TRANSLATIONS: any = {
       subtitle: "Ingénieure Logiciel Embarqué spécialisée dans l'automatisation de tests et les protocoles bas-niveau.",
       cta_primary: "Voir mes travaux",
       cta_secondary: "Collaborons",
-      scroll: "Défiler"
+      scroll: "Défiler",
+      status: "DISPONIBLE"
     },
     skills: {
       title: "Expertises",
@@ -111,7 +112,7 @@ export const TRANSLATIONS: any = {
           role: "Embedded Software Intern",
           period: "2019",
           description: [
-            "Collecte et traitement de données de capteurs embarqués (IMU, GPS, radar) sur STM32H7.",
+            "Collecte et traitement de données de capteurs embarqués (IMU, GPS, radar) on STM32H7.",
             "Développement d'un banc de test simulant le comportement d'un véhicule (protocoles I2C, UART, CAN FD)."
           ]
         }
@@ -133,7 +134,8 @@ export const TRANSLATIONS: any = {
       subtitle: "Embedded Software Engineer specializing in test automation and low-level protocols.",
       cta_primary: "View my work",
       cta_secondary: "Let's collaborate",
-      scroll: "Scroll"
+      scroll: "Scroll",
+      status: "OPEN TO WORK"
     },
     skills: {
       title: "Expertise",
@@ -243,17 +245,19 @@ export const PROJECTS_BASE: any[] = [
   {
     id: '1',
     tags: ["STM32F4", "CAN", "IMU"],
-    imageUrl: "https://picsum.photos/seed/motorcycle/800/600",
-    videoUrl: "https://www.w3schools.com/html/mov_bbb.mp4"
+    imageUrl: "/projet1.jpg",
+    videoUrl: "/projet1.mp4"
   },
   {
     id: '2',
     tags: ["ESP32", "WiFi", "UART"],
-    imageUrl: "https://picsum.photos/seed/printer/800/600",
+    imageUrl: "/projet2.jpg",
+    videoUrl: "/projet2.mp4"
   },
   {
     id: '3',
     tags: ["STM32L0", "NFC", "RS232"],
-    imageUrl: "https://picsum.photos/seed/nfc/800/600",
+    imageUrl: "/projet3.jpg",
+    videoUrl: "/projet3.mp4"
   },
 ];

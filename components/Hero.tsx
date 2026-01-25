@@ -16,7 +16,7 @@ const Hero: React.FC = () => {
           <div className="flex-1 text-center md:text-left">
             <div className="inline-flex items-center gap-2 px-3 py-1 mb-6 rounded-md border border-green-100 bg-green-50 text-green-600 text-[10px] font-black uppercase tracking-[0.2em]">
               <span className="w-1.5 h-1.5 bg-green-500 rounded-full animate-ping"></span>
-              {t('hero.tag')} // STABLE_BUILD
+              {t('hero.tag')}
             </div>
             <h1 className="text-6xl md:text-9xl font-black mb-8 text-slate-900 tracking-tighter leading-none uppercase">
               {t('hero.title_first')} <br/><span className="gradient-text">{t('hero.title_second')}</span>
@@ -36,21 +36,27 @@ const Hero: React.FC = () => {
           </div>
           
           <div className="flex-shrink-0 w-80 h-80 md:w-[450px] md:h-[450px] relative">
-            {/* Éléments HUD tournants / décoratifs */}
             <div className="absolute inset-0 border-2 border-dashed border-green-200 rounded-full animate-[spin_20s_linear_infinite]"></div>
             
             <div className="absolute inset-4 bg-white rounded-3xl shadow-2xl overflow-hidden group">
               <img 
-                src="https://r.jina.ai/i/6f90656e174b4550882104112674e76d" 
+                src="/profile.jpg" 
                 alt="Léa Desse" 
                 className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                onError={(e) => {
+                  (e.target as HTMLImageElement).src = "https://r.jina.ai/i/6f90656e174b4550882104112674e76d";
+                }}
               />
               <div className="absolute inset-0 bg-gradient-to-t from-green-900/40 to-transparent"></div>
             </div>
 
-            {/* Badges Flottants Flashy */}
-            <div className="absolute -bottom-6 -right-6 bg-green-500 text-white px-6 py-4 rounded-2xl shadow-2xl z-20 font-black text-xs uppercase tracking-widest border-4 border-white rotate-3">
-              Eng. Logiciel
+            {/* Badge OPEN TO WORK style */}
+            <div className="absolute -bottom-6 -right-6 bg-green-500 text-slate-900 px-6 py-4 rounded-2xl shadow-[0_20px_50px_rgba(34,197,94,0.4)] z-20 font-black text-xs uppercase tracking-[0.2em] border-4 border-white rotate-3 flex flex-col items-center">
+              <div className="flex items-center gap-2 mb-0.5">
+                <span className="w-2 h-2 bg-white rounded-full animate-pulse"></span>
+                <span className="text-white">{t('hero.status')}</span>
+              </div>
+              <span className="text-[8px] text-green-100/80 tracking-widest">#OPENTOWORK</span>
             </div>
             
             <div className="absolute top-10 -left-10 bg-slate-900 text-white p-4 rounded-xl shadow-xl z-20 font-mono text-[9px] -rotate-12 border border-green-400/30">
@@ -58,7 +64,6 @@ const Hero: React.FC = () => {
               <div>whoami --pro</div>
             </div>
 
-            {/* Coordonnées GPS factices pour le style geek */}
             <div className="absolute -top-4 right-10 bg-white/90 backdrop-blur px-3 py-1 rounded border border-slate-200 text-[8px] font-bold text-slate-400 z-20">
               43.6000° N, 7.0167° E
             </div>
