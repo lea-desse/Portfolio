@@ -127,6 +127,16 @@ export const TRANSLATIONS: any = {
             "Collecte et traitement de données de capteurs embarqués (IMU, GPS, radar) sur STM32H7.",
             "Développement d'un banc de test simulant le comportement d'un véhicule (protocoles I2C, UART, CAN FD)."
           ]
+        },
+        {
+          company: "ESME Sudria",
+          role: "Diplôme d'Ingénieur, Systèmes Embarqués",
+          period: "2014 - 2019",
+          description: [
+            "Formation généraliste d'ingénieur avec spécialisation en conception de systèmes embarqués.",
+            "Projets académiques : Robotique mobile, design de processeurs sur FPGA.",
+            "2017 : Semestre d'études à l'étranger (Óbuda University, Budapest)."
+          ]
         }
       ]
     }
@@ -246,6 +256,16 @@ export const TRANSLATIONS: any = {
           description: [
             "Collection and processing of embedded sensor data (IMU, GPS, radar) on STM32H7.",
             "Development of a test bench simulating vehicle behavior (I2C, UART, CAN FD protocols)."
+          ]
+        },
+        {
+          company: "ESME Sudria",
+          role: "Master of Engineering, Embedded Systems",
+          period: "2014 - 2019",
+          description: [
+            "General engineering curriculum with a major in embedded systems design.",
+            "Academic projects: Mobile robotics, FPGA processor design.",
+            "2017: Exchange semester abroad (Óbuda University, Budapest)."
           ]
         }
       ]
