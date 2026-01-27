@@ -17,6 +17,7 @@ export const TRANSLATIONS: any = {
       skills: "Compétences",
       projects: "Projets",
       experience: "Parcours",
+      hobbies: "Passions",
       contact: "Contact"
     },
     hero: {
@@ -50,6 +51,16 @@ export const TRANSLATIONS: any = {
     experience: {
       title: "Parcours",
       subtitle: "Plus de 5 ans d'expérience au coeur de l'innovation embarquée."
+    },
+    hobbies: {
+      title: "Hors-Piste",
+      subtitle: "Ce qui m'anime en dehors des lignes de code.",
+      moto_title: "Moto sur piste",
+      moto_desc: "Adrénaline et précision technique. La recherche de la trajectoire parfaite, que ce soit sur le bitume ou dans un algorithme.",
+      bivouac_title: "Bivouac & Nature",
+      bivouac_desc: "L'autonomie totale. Explorer des lieux reculés, loin du bruit, pour revenir aux sources et recharger les batteries.",
+      maker_title: "Passion Maker",
+      maker_desc: "L'électronique ne s'arrête pas au bureau. Je passe mon temps libre à concevoir des gadgets hardware et à expérimenter de nouveaux composants."
     },
     contact: {
       title_first: "Parlons de votre",
@@ -160,6 +171,7 @@ export const TRANSLATIONS: any = {
       skills: "Skills",
       projects: "Projects",
       experience: "Experience",
+      hobbies: "Beyond",
       contact: "Contact"
     },
     hero: {
@@ -193,6 +205,16 @@ export const TRANSLATIONS: any = {
     experience: {
       title: "Experience",
       subtitle: "Over 5 years of experience at the heart of embedded innovation."
+    },
+    hobbies: {
+      title: "Beyond Engineering",
+      subtitle: "What drives me when I'm not writing code.",
+      moto_title: "Track Motorcycling",
+      moto_desc: "Adrenaline and technical precision. Searching for the perfect line, whether on the asphalt or in an algorithm.",
+      bivouac_title: "Bivouac & Outdoors",
+      bivouac_desc: "Total autonomy. Exploring remote places, far from the noise, to get back to basics and recharge.",
+      maker_title: "Maker Passion",
+      maker_desc: "Electronics don't stop at the office. I spend my free time designing hardware gadgets and experimenting with new components."
     },
     contact: {
       title_first: "Let's talk about your",
