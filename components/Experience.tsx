@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 import { useLanguage } from '../context/LanguageContext';
 
@@ -66,7 +67,8 @@ const Experience: React.FC = () => {
 
   return (
     <section id="experience" className="py-32 bg-slate-950 relative overflow-hidden">
-      <div className="absolute inset-0 opacity-[0.03] pointer-events-none" 
+      {/* Background decoration */}
+      <div className="absolute inset-0 opacity-[0.05] pointer-events-none" 
            style={{ backgroundImage: 'linear-gradient(#22c55e 1px, transparent 1px), linear-gradient(90deg, #22c55e 1px, transparent 1px)', backgroundSize: '50px 50px' }}>
       </div>
       
@@ -81,19 +83,26 @@ const Experience: React.FC = () => {
         </div>
 
         <div className="relative">
-          <div className="absolute left-4 md:left-1/2 md:-translate-x-1/2 top-0 bottom-0 w-1 bg-slate-800 rounded-full"></div>
+          {/* Central electrified line - RESTORED */}
+          <div className="absolute left-4 md:left-1/2 md:-translate-x-1/2 top-0 bottom-0 w-1 bg-slate-800 rounded-full">
+            <div className="absolute inset-0 bg-green-500 shadow-[0_0_15px_rgba(34,197,94,0.6)] animate-pulse"></div>
+          </div>
 
           <div className="space-y-20">
             {tExperiences.map((exp: any, idx: number) => (
               <div key={idx} className={`relative flex flex-col md:flex-row items-center gap-8 ${idx % 2 === 0 ? 'md:flex-row-reverse' : ''}`}>
-                <div className="absolute left-4 md:left-1/2 md:-translate-x-1/2 w-6 h-6 rounded-full bg-slate-900 border-4 border-green-500 z-20"></div>
+                
+                {/* Pulsating Connector Dot - RESTORED */}
+                <div className="absolute left-4 md:left-1/2 md:-translate-x-1/2 w-6 h-6 rounded-full bg-slate-900 border-4 border-green-500 shadow-[0_0_20px_rgba(34,197,94,0.8)] z-20 flex items-center justify-center">
+                  <div className="w-1.5 h-1.5 bg-white rounded-full animate-ping"></div>
+                </div>
 
                 <div className="w-full md:w-[45%] pl-12 md:pl-0">
-                  <div className="bg-slate-900/80 backdrop-blur-xl p-8 rounded-[2rem] border-2 border-slate-800 hover:border-green-500 transition-all duration-500 group relative">
+                  <div className="bg-slate-900/80 backdrop-blur-xl p-8 rounded-[2rem] border-2 border-slate-800 hover:border-green-500 transition-all duration-500 group relative shadow-2xl">
                     <div className="flex items-start justify-between mb-6">
                       <div className="flex flex-col">
                         <span className="text-[10px] font-black text-slate-500 uppercase mb-1">{exp.period}</span>
-                        <h3 className="text-2xl font-black text-white tracking-tight uppercase">{exp.role}</h3>
+                        <h3 className="text-2xl font-black text-white tracking-tight uppercase group-hover:text-green-400 transition-colors">{exp.role}</h3>
                         <p className="text-green-500/80 font-bold uppercase tracking-widest text-[11px]">@ {exp.company}</p>
                       </div>
                       {exp.logo && <img src={exp.logo} alt={exp.company} className="w-12 h-12 object-contain bg-white rounded-xl p-1.5" />}
@@ -102,7 +111,7 @@ const Experience: React.FC = () => {
                     <ul className="space-y-3 mb-8">
                       {exp.description.slice(0, 2).map((item: string, i: number) => (
                         <li key={i} className="text-slate-400 text-xs leading-relaxed flex gap-3">
-                          <span className="text-green-500 font-mono">[+]</span>
+                          <span className="text-green-500 font-mono font-bold">[{i}]</span>
                           <span>{item}</span>
                         </li>
                       ))}
@@ -111,10 +120,10 @@ const Experience: React.FC = () => {
                     {exp.details && (
                       <button 
                         onClick={() => setSelectedExp(idx)}
-                        className="text-[10px] font-black text-green-500 uppercase tracking-widest flex items-center gap-2 hover:text-white transition-colors"
+                        className="text-[10px] font-black text-green-500 uppercase tracking-widest flex items-center gap-2 hover:text-white transition-colors group/btn"
                       >
                         En savoir plus
-                        <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                        <svg className="w-4 h-4 transition-transform group-hover/btn:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
                       </button>
                     )}
                   </div>
