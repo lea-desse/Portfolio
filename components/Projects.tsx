@@ -13,7 +13,8 @@ const ProjectModal: React.FC<{ project: any, tData: any, onClose: () => void }> 
   }, []);
 
   const renderMedia = (url: string) => {
-    if (url.endsWith('.mp4') || url.endsWith('.webm')) {
+    const isVideo = url.endsWith('.mp4') || url.endsWith('.webm') || url.endsWith('.mov');
+    if (isVideo) {
       return <video src={url} autoPlay loop muted controls className="w-full h-full object-contain bg-black" />;
     }
     return <img src={url} alt={tData.title} className="w-full h-full object-contain bg-slate-950" />;
@@ -111,7 +112,7 @@ const ProjectModal: React.FC<{ project: any, tData: any, onClose: () => void }> 
 
 const ProjectCard: React.FC<{ project: any, tData: any, onOpen: () => void }> = ({ project, tData, onOpen }) => {
   const { t } = useLanguage();
-  const isMediaReady = project.imageUrl && !project.imageUrl.includes('/projet'); // Correction ici pour accepter les chemins relatifs locaux
+  const isMediaReady = project.imageUrl && !project.imageUrl.includes('Coming_Soon') && !project.imageUrl.includes('placeholder'); 
 
   return (
     <div 

@@ -75,17 +75,19 @@ export const TRANSLATIONS: any = {
       projects: [
         {
           title: "Système d'Ailerons Stabilisateurs pour Moto",
-          description: "Système de correction d'assiette en temps réel avec IMU Bosch. Architecture dual-box communiquant via CAN.",
+          description: "Système de correction d'assiette en temps réel avec IMU Bosch. Architecture dual-box communiquant via CAN FD.",
           category: "Robotique / Moto",
           details: {
-            fullDescription: "Ce projet vise à améliorer la stabilité et l'aérodynamisme des motos à haute vitesse. Le système utilise une centrale inertielle (IMU) Bosch pour détecter l'inclinaison et le tangage en temps réel, pilotant des ailerons mobiles via des servomoteurs haute précision.",
+            title: "Système d'Ailerons Actifs pour Moto",
+            fullDescription: "Ce projet, présenté lors de plusieurs expositions, consiste en un système d'ailerons mobiles pour moto visant à stabiliser l'assiette en temps réel. L'architecture repose sur deux boîtiers distincts communiquant via le bus CAN FD. Un module de puissance sur mesure convertit le 12V de la batterie en 7V pour piloter l'ensemble.",
             features: [
-              "Calcul d'assiette à 200Hz pour une réactivité instantanée",
-              "Communication robuste entre les modules via bus CAN",
-              "Algorithme PID personnalisé pour le contrôle des surfaces mobiles",
-              "Réalisation complète : design PCB, firmware, boîtiers imprimés en 3D"
+              "Boîtier Guidon : Interface utilisateur pour la calibration de l'offset et le réglage du ratio d'inclinaison",
+              "Stockage EEPROM : Sauvegarde permanente des paramètres de calibration et des ratios",
+              "Boîtier Selle : Intègre une IMU Bosch pour le calcul d'angle en temps réel",
+              "Contrôle Dynamique : Adaptation instantanée de l'angle des ailerons via servomoteurs",
+              "Communication CAN FD : Échange de données haute performance entre les modules"
             ],
-            technologies: ["STM32F4", "FreeRTOS", "Bus CAN", "C/C++", "KiCad", "Impression 3D"]
+            technologies: ["STM32", "CAN FD", "Bosch IMU", "C/C++", "EEPROM", "Electronique de puissance"]
           }
         },
         {
@@ -216,17 +218,19 @@ export const TRANSLATIONS: any = {
       projects: [
         {
           title: "Motorcycle Stabilizer Wing System",
-          description: "Real-time attitude correction system with Bosch IMU. Dual-box architecture communicating via CAN.",
+          description: "Real-time attitude correction system with Bosch IMU. Dual-box architecture communicating via CAN FD.",
           category: "Robotics / Moto",
           details: {
-            fullDescription: "This project aims to improve stability and aerodynamics for motorcycles at high speeds. The system uses a Bosch Inertial Measurement Unit (IMU) to detect lean and pitch in real-time, driving movable wings via high-precision servos.",
+            title: "Active Wing System for Motorcycles",
+            fullDescription: "This project, showcased at several exhibitions, features a mobile wing system for motorcycles designed to stabilize attitude in real-time. The architecture utilizes two distinct units communicating via CAN FD bus. A custom-built power module converts 12V battery power to 7V to drive the system.",
             features: [
-              "200Hz attitude calculation for instant reactivity",
-              "Robust inter-module communication via CAN bus",
-              "Custom PID algorithm for wing surface control",
-              "Full realization: PCB design, firmware, 3D-printed enclosures"
+              "Handlebar Unit: User interface for offset calibration and tilt ratio adjustment",
+              "EEPROM Storage: Permanent saving of calibration parameters and ratios",
+              "Seat Unit: Integrates a Bosch IMU for real-time angle calculation",
+              "Dynamic Control: Instantaneous adjustment of wing angles via servomotors",
+              "CAN FD Communication: High-performance data exchange between modules"
             ],
-            technologies: ["STM32F4", "FreeRTOS", "CAN Bus", "C/C++", "KiCad", "3D Printing"]
+            technologies: ["STM32", "CAN FD", "Bosch IMU", "C/C++", "EEPROM", "Power Electronics"]
           }
         },
         {
@@ -317,9 +321,9 @@ export const PROJECTS_BASE: any[] = [
   {
     id: '1',
     tags: ["STM32F4", "CAN", "IMU"],
-    imageUrl: "./projet1_1.jpg",
+    imageUrl: "./projet1_1.webp",
     videoUrl: "./projet1_2.mp4",
-    gallery: ["./projet1_1.jpg", "./projet1_2.mp4", "./projet1_3.jpg", "./projet1_4.jpg", "./projet1_5.png", "./projet1_6.jpg"]
+    gallery: ["./projet1_1.webp", "./projet1_2.mp4", "./projet1_3.webp", "./projet1_4.webp", "./projet1_5.webp", "./projet1_6.webp"]
   },
   {
     id: '2',
