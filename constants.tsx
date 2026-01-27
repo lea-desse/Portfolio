@@ -142,8 +142,11 @@ export const TRANSLATIONS: any = {
             "2017 : Semestre d'études à l'Université Corvinus de Budapest (BCE)."
           ],
           details: {
-            fullDescription: "Conception et contrôle d'une orthèse de bras robotisée utilisant des muscles pneumatiques innovants à base de ballons de baudruche. Le système était piloté par un Raspberry Pi.",
-            technologies: ["Raspberry Pi", "Python", "Contrôle Pneumatique", "Systèmes Temps Réel"]
+            title: "Projet de fin d'études : Orthèse pour personne hémiplégique",
+            fullDescription: "Réalisé pour l'hôpital de Garches, ce projet visait à concevoir une orthèse de bras pilotée par des muscles pneumatiques (ballons de baudruche remplis d'eau). Le système, orchestré par un Raspberry Pi, contrôlait une pompe et des électrovannes pour simuler la contraction musculaire. Grâce à des IMU sur le bras valide, l'orthèse répliquait les mouvements sur le bras invalide, tandis que des capteurs de pression assuraient la sécurité du patient contre tout risque d'éclatement.",
+            videoUrl: "./orthese_demo.webm",
+            imageUrl: "./orthese_demo.jpg",
+            technologies: ["C", "Raspberry Pi", "Pneumatique", "IMU", "Capteurs de pression"]
           }
         }
       ]
@@ -280,8 +283,11 @@ export const TRANSLATIONS: any = {
             "2017: Exchange semester abroad at Corvinus University of Budapest (BCE)."
           ],
           details: {
-            fullDescription: "Design and control of a robotic arm orthosis using innovative balloon-based pneumatic muscles. The system was powered by a Raspberry Pi.",
-            technologies: ["Raspberry Pi", "Python", "Pneumatic Control", "Real-time Systems"]
+            title: "Final Year Project: Orthosis for Hemiplegic Patients",
+            fullDescription: "Developed for the Garches Hospital, this project focused on controlling a robotic arm orthosis using water-filled balloons as pneumatic muscles. A Raspberry Pi controlled pumps and valves to simulate muscle contraction. Using IMUs on the patient's healthy arm, the orthosis replicated movements on the paralyzed arm, while pressure sensors monitored the system to eliminate any risk of bursting.",
+            videoUrl: "./orthese_demo.webm",
+            imageUrl: "./orthese_demo.jpg",
+            technologies: ["C", "Raspberry Pi", "Pneumatics", "IMU", "Pressure Sensors"]
           }
         }
       ]

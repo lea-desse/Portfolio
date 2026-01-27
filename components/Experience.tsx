@@ -18,7 +18,7 @@ const ExperienceModal: React.FC<{ exp: any, onClose: () => void }> = ({ exp, onC
         <div className="flex items-center gap-6 mb-10">
           {exp.logo && <img src={exp.logo} alt={exp.company} className="w-20 h-20 object-contain bg-white rounded-2xl p-2" />}
           <div>
-            <h2 className="text-3xl font-black text-white uppercase italic">{exp.role}</h2>
+            <h2 className="text-3xl font-black text-white uppercase italic">{exp.details?.title || exp.role}</h2>
             <p className="text-green-500 font-bold uppercase tracking-widest">@ {exp.company}</p>
           </div>
         </div>
@@ -28,11 +28,18 @@ const ExperienceModal: React.FC<{ exp: any, onClose: () => void }> = ({ exp, onC
             {exp.details?.fullDescription || exp.description.join(' ')}
           </p>
 
-          {exp.details?.videoUrl && (
-            <div className="rounded-3xl overflow-hidden border-2 border-slate-800 bg-black">
-              <video src={exp.details.videoUrl} controls className="w-full aspect-video" />
-            </div>
-          )}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {exp.details?.videoUrl && (
+              <div className="rounded-3xl overflow-hidden border-2 border-slate-800 bg-black">
+                <video src={exp.details.videoUrl} controls className="w-full aspect-video h-full object-cover" />
+              </div>
+            )}
+            {exp.details?.imageUrl && (
+              <div className="rounded-3xl overflow-hidden border-2 border-slate-800 bg-black">
+                <img src={exp.details.imageUrl} className="w-full h-full object-cover" alt="Projet demo" />
+              </div>
+            )}
+          </div>
 
           {exp.details?.technologies && (
             <div>
