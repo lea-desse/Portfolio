@@ -1,4 +1,3 @@
-
 export interface Project {
   id: string;
   title: string;
@@ -8,6 +7,7 @@ export interface Project {
   imageUrl: string;
   videoUrl?: string;
   githubUrl?: string;
+  gallery?: string[]; // Pour plusieurs images/vidéos
   details?: {
     fullDescription: string;
     features: string[];
@@ -25,5 +25,11 @@ export interface Experience {
   company: string;
   role: string;
   period: string;
+  logo?: string; // Chemin vers le logo
   description: string[];
+  details?: {
+    fullDescription: string;
+    videoUrl?: string;
+    technologies?: string[];
+  };
 }

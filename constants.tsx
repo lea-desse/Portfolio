@@ -75,7 +75,7 @@ export const TRANSLATIONS: any = {
       projects: [
         {
           title: "Système d'Ailerons Stabilisateurs pour Moto",
-          description: "Système de correction d'assiette en temps réel avec IMU Bosch. Architecture dual-box communiquant via CAN. Réalisation complète : design PCB, firmware, boîtiers imprimés en 3D.",
+          description: "Système de correction d'assiette en temps réel avec IMU Bosch. Architecture dual-box communiquant via CAN.",
           category: "Robotique / Moto",
           details: {
             fullDescription: "Ce projet vise à améliorer la stabilité et l'aérodynamisme des motos à haute vitesse. Le système utilise une centrale inertielle (IMU) Bosch pour détecter l'inclinaison et le tangage en temps réel, pilotant des ailerons mobiles via des servomoteurs haute précision.",
@@ -83,14 +83,14 @@ export const TRANSLATIONS: any = {
               "Calcul d'assiette à 200Hz pour une réactivité instantanée",
               "Communication robuste entre les modules via bus CAN",
               "Algorithme PID personnalisé pour le contrôle des surfaces mobiles",
-              "Monitoring en temps réel via port série pour le débug"
+              "Réalisation complète : design PCB, firmware, boîtiers imprimés en 3D"
             ],
             technologies: ["STM32F4", "FreeRTOS", "Bus CAN", "C/C++", "KiCad", "Impression 3D"]
           }
         },
         {
           title: "Imprimante Thermique Connectée",
-          description: "Imprimante thermique connectée en WiFi avec authentification API et configuration Point d'Accès. Réalisation complète : design PCB, firmware ESP32, boîtier imprimé en 3D.",
+          description: "Imprimante thermique connectée en WiFi avec authentification API et configuration Point d'Accès.",
           category: "IoT"
         },
         {
@@ -104,6 +104,7 @@ export const TRANSLATIONS: any = {
           company: "STMicroelectronics",
           role: "Ingénieure Logiciel Embarqué",
           period: "2021 - 2026",
+          logo: "./st_logo.png",
           description: [
             "Développement et maintenance d'outils de validation pour les piles Zigbee et OpenThread.",
             "Intégration continue avec Jenkins et optimisation des processus de développement.",
@@ -114,6 +115,7 @@ export const TRANSLATIONS: any = {
           company: "Elsys Design (Prestation chez ST)",
           role: "Ingénieure Logiciel Embarqué",
           period: "2020 - 2021",
+          logo: "./elsys_logo.png",
           description: [
             "Développement de tests embarqués en C pour la validation de l'intégration OpenThread sur STM32WB.",
             "Développement d'outils de support pour Zigbee et OpenThread en Python."
@@ -123,6 +125,7 @@ export const TRANSLATIONS: any = {
           company: "Elsys Design",
           role: "Stage Ingénieure Logiciel Embarqué",
           period: "2019",
+          logo: "./elsys_logo.png",
           description: [
             "Collecte et traitement de données de capteurs embarqués (IMU, GPS, radar) sur STM32H7.",
             "Développement d'un banc de test simulant le comportement d'un véhicule (protocoles I2C, UART, CAN FD)."
@@ -132,11 +135,16 @@ export const TRANSLATIONS: any = {
           company: "ESME Sudria",
           role: "Diplôme d'Ingénieur, Systèmes Embarqués",
           period: "2014 - 2019",
+          logo: "./esme_logo.png",
           description: [
-            "Formation généraliste d'ingénieur avec spécialisation en conception de systèmes embarqués.",
-            "Projets académiques : Robotique mobile, design de processeurs sur FPGA.",
-            "2017 : Semestre d'études à l'étranger (Óbuda University, Budapest)."
-          ]
+            "Formation d'ingénieur avec spécialisation en conception de systèmes embarqués.",
+            "Projet de fin d'études : Contrôle d'une orthèse de bras à muscles artificiels (ballons de baudruche).",
+            "2017 : Semestre d'études à l'Université Corvinus de Budapest (BCE)."
+          ],
+          details: {
+            fullDescription: "Conception et contrôle d'une orthèse de bras robotisée utilisant des muscles pneumatiques innovants à base de ballons de baudruche. Le système était piloté par un Raspberry Pi.",
+            technologies: ["Raspberry Pi", "Python", "Contrôle Pneumatique", "Systèmes Temps Réel"]
+          }
         }
       ]
     }
@@ -205,7 +213,7 @@ export const TRANSLATIONS: any = {
       projects: [
         {
           title: "Motorcycle Stabilizer Wing System",
-          description: "Real-time attitude correction system with Bosch IMU. Dual-box architecture communicating via CAN. Complete realization: PCB design, firmware, 3D-printed enclosures.",
+          description: "Real-time attitude correction system with Bosch IMU. Dual-box architecture communicating via CAN.",
           category: "Robotics / Moto",
           details: {
             fullDescription: "This project aims to improve stability and aerodynamics for motorcycles at high speeds. The system uses a Bosch Inertial Measurement Unit (IMU) to detect lean and pitch in real-time, driving movable wings via high-precision servos.",
@@ -213,14 +221,14 @@ export const TRANSLATIONS: any = {
               "200Hz attitude calculation for instant reactivity",
               "Robust inter-module communication via CAN bus",
               "Custom PID algorithm for wing surface control",
-              "Real-time monitoring via serial port for debugging"
+              "Full realization: PCB design, firmware, 3D-printed enclosures"
             ],
             technologies: ["STM32F4", "FreeRTOS", "CAN Bus", "C/C++", "KiCad", "3D Printing"]
           }
         },
         {
           title: "Connected Thermal Printer",
-          description: "WiFi-connected thermal printer with API authentication and Access Point configuration. Complete realization: PCB design, ESP32 firmware, 3D-printed enclosure.",
+          description: "WiFi-connected thermal printer with API authentication and Access Point configuration.",
           category: "IoT"
         },
         {
@@ -234,6 +242,7 @@ export const TRANSLATIONS: any = {
           company: "STMicroelectronics",
           role: "Embedded Software Engineer",
           period: "2021 - 2026",
+          logo: "./st_logo.png",
           description: [
             "Development and maintenance of validation tools for Zigbee and OpenThread stacks.",
             "Continuous integration with Jenkins and development process optimization.",
@@ -244,6 +253,7 @@ export const TRANSLATIONS: any = {
           company: "Elsys Design (Contractor at ST)",
           role: "Embedded Software Engineer",
           period: "2020 - 2021",
+          logo: "./elsys_logo.png",
           description: [
             "Development of embedded tests in C for OpenThread integration validation on STM32WB.",
             "Development of support tools for Zigbee and OpenThread in Python."
@@ -253,6 +263,7 @@ export const TRANSLATIONS: any = {
           company: "Elsys Design",
           role: "Embedded Software Intern",
           period: "2019",
+          logo: "./elsys_logo.png",
           description: [
             "Collection and processing of embedded sensor data (IMU, GPS, radar) on STM32H7.",
             "Development of a test bench simulating vehicle behavior (I2C, UART, CAN FD protocols)."
@@ -262,11 +273,16 @@ export const TRANSLATIONS: any = {
           company: "ESME Sudria",
           role: "Master of Engineering, Embedded Systems",
           period: "2014 - 2019",
+          logo: "./esme_logo.png",
           description: [
-            "General engineering curriculum with a major in embedded systems design.",
-            "Academic projects: Mobile robotics, FPGA processor design.",
-            "2017: Exchange semester abroad (Óbuda University, Budapest)."
-          ]
+            "Engineering curriculum with a major in embedded systems design.",
+            "Final year project: Control of an arm orthosis with artificial muscles (latex balloons).",
+            "2017: Exchange semester abroad at Corvinus University of Budapest (BCE)."
+          ],
+          details: {
+            fullDescription: "Design and control of a robotic arm orthosis using innovative balloon-based pneumatic muscles. The system was powered by a Raspberry Pi.",
+            technologies: ["Raspberry Pi", "Python", "Pneumatic Control", "Real-time Systems"]
+          }
         }
       ]
     }
@@ -295,8 +311,9 @@ export const PROJECTS_BASE: any[] = [
   {
     id: '1',
     tags: ["STM32F4", "CAN", "IMU"],
-    imageUrl: "/projet1.jpg",
-    videoUrl: "/projet1.mp4"
+    imageUrl: "./projet1_1.jpg",
+    videoUrl: "./projet1_2.mp4",
+    gallery: ["./projet1_1.jpg", "./projet1_2.mp4", "./projet1_3.jpg", "./projet1_4.jpg", "./projet1_5.png", "./projet1_6.jpg"]
   },
   {
     id: '2',

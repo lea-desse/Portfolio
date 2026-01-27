@@ -1,85 +1,108 @@
+
 import React, { useState, useEffect } from 'react';
 import { PROJECTS_BASE } from '../constants';
 import { useLanguage } from '../context/LanguageContext';
 
 const ProjectModal: React.FC<{ project: any, tData: any, onClose: () => void }> = ({ project, tData, onClose }) => {
+  const [activeMedia, setActiveMedia] = useState(0);
+  const mediaList = project.gallery || [project.videoUrl || project.imageUrl];
+
   useEffect(() => {
     document.body.style.overflow = 'hidden';
     return () => { document.body.style.overflow = 'unset'; };
   }, []);
 
+  const renderMedia = (url: string) => {
+    if (url.endsWith('.mp4') || url.endsWith('.webm')) {
+      return <video src={url} autoPlay loop muted controls className="w-full h-full object-contain bg-black" />;
+    }
+    return <img src={url} alt={tData.title} className="w-full h-full object-contain bg-slate-950" />;
+  };
+
   return (
     <div className="fixed inset-0 z-[110] flex items-center justify-center p-4 sm:p-6 md:p-10">
       <div className="absolute inset-0 bg-slate-950/90 backdrop-blur-xl" onClick={onClose}></div>
       
-      <div className="relative bg-slate-900 border-2 border-slate-800 w-full max-w-5xl max-h-[90vh] overflow-y-auto rounded-[2rem] shadow-2xl custom-scrollbar animate-in zoom-in-95 duration-300">
+      <div className="relative bg-slate-900 border-2 border-slate-800 w-full max-w-6xl max-h-[90vh] overflow-y-auto rounded-[2rem] shadow-2xl custom-scrollbar animate-in zoom-in-95 duration-300 flex flex-col lg:flex-row">
         <button 
           onClick={onClose}
-          className="absolute top-6 right-6 z-20 w-10 h-10 bg-slate-800 hover:bg-green-500 text-white hover:text-slate-900 rounded-full flex items-center justify-center transition-all"
+          className="absolute top-6 right-6 z-30 w-10 h-10 bg-slate-800/80 backdrop-blur hover:bg-green-500 text-white hover:text-slate-900 rounded-full flex items-center justify-center transition-all"
         >
           <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12"></path></svg>
         </button>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2">
-          {/* Media Section */}
-          <div className="bg-slate-950 min-h-[300px] lg:min-h-full flex items-center justify-center relative">
-            {project.videoUrl ? (
-              <video src={project.videoUrl} autoPlay loop muted controls className="w-full h-full object-cover" />
-            ) : project.imageUrl && !project.imageUrl.includes('projet') ? (
-              <img src={project.imageUrl} alt={tData.title} className="w-full h-full object-cover" />
-            ) : (
-              <div className="flex flex-col items-center gap-4 opacity-20">
-                <svg className="w-20 h-20 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
-                <span className="font-mono text-[10px] tracking-[0.5em] text-green-500">MEDIA_PENDING.SYS</span>
-              </div>
-            )}
+        {/* Media Section */}
+        <div className="lg:w-3/5 bg-slate-950 flex flex-col relative border-r border-slate-800">
+          <div className="flex-1 flex items-center justify-center overflow-hidden min-h-[300px] lg:min-h-[500px]">
+            {renderMedia(mediaList[activeMedia])}
           </div>
-
-          {/* Content Section */}
-          <div className="p-8 md:p-12">
-            <div className="flex items-center gap-3 mb-6">
-              <span className="px-3 py-1 bg-green-500/10 border border-green-500/20 text-green-500 text-[10px] font-black uppercase tracking-widest rounded-full">{tData.category}</span>
+          
+          {/* Thumbnails */}
+          {mediaList.length > 1 && (
+            <div className="p-4 bg-slate-900/50 backdrop-blur flex gap-2 overflow-x-auto custom-scrollbar">
+              {mediaList.map((url: string, i: number) => (
+                <button 
+                  key={i} 
+                  onClick={() => setActiveMedia(i)}
+                  className={`flex-shrink-0 w-20 h-14 rounded-lg overflow-hidden border-2 transition-all ${activeMedia === i ? 'border-green-500 scale-105' : 'border-transparent opacity-50 hover:opacity-100'}`}
+                >
+                  {url.endsWith('.mp4') || url.endsWith('.webm') ? (
+                    <div className="w-full h-full bg-slate-800 flex items-center justify-center">
+                      <svg className="w-6 h-6 text-green-500" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z" /></svg>
+                    </div>
+                  ) : (
+                    <img src={url} className="w-full h-full object-cover" />
+                  )}
+                </button>
+              ))}
             </div>
-            
-            <h2 className="text-4xl font-black text-white mb-6 uppercase tracking-tight italic">{tData.title}</h2>
-            
-            <p className="text-slate-400 leading-relaxed mb-10 font-medium italic border-l-4 border-green-500 pl-6">
-              {tData.details?.fullDescription || tData.description}
-            </p>
+          )}
+        </div>
 
-            {tData.details?.features && (
-              <div className="mb-10">
-                <h3 className="text-xs font-black text-white uppercase tracking-[0.3em] mb-6 flex items-center gap-3">
-                  <span className="w-8 h-px bg-green-500"></span>
-                  Key_Features
-                </h3>
-                <ul className="grid grid-cols-1 gap-4">
-                  {tData.details.features.map((feature: string, i: number) => (
-                    <li key={i} className="flex items-start gap-3 text-slate-400 text-sm">
-                      <span className="text-green-500 font-mono mt-1">0{i+1}</span>
-                      <span className="font-medium">{feature}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            )}
-
-            {tData.details?.technologies && (
-              <div>
-                <h3 className="text-xs font-black text-white uppercase tracking-[0.3em] mb-6 flex items-center gap-3">
-                  <span className="w-8 h-px bg-green-500"></span>
-                  Stack_Tech
-                </h3>
-                <div className="flex flex-wrap gap-2">
-                  {tData.details.technologies.map((tech: string) => (
-                    <span key={tech} className="px-3 py-1.5 bg-slate-800 border border-slate-700 text-slate-300 text-[10px] font-bold rounded-lg uppercase tracking-wider">
-                      {tech}
-                    </span>
-                  ))}
-                </div>
-              </div>
-            )}
+        {/* Content Section */}
+        <div className="lg:w-2/5 p-8 md:p-12 overflow-y-auto">
+          <div className="flex items-center gap-3 mb-6">
+            <span className="px-3 py-1 bg-green-500/10 border border-green-500/20 text-green-500 text-[10px] font-black uppercase tracking-widest rounded-full">{tData.category}</span>
           </div>
+          
+          <h2 className="text-4xl font-black text-white mb-6 uppercase tracking-tight italic">{tData.title}</h2>
+          
+          <p className="text-slate-400 leading-relaxed mb-10 font-medium italic border-l-4 border-green-500 pl-6">
+            {tData.details?.fullDescription || tData.description}
+          </p>
+
+          {tData.details?.features && (
+            <div className="mb-10">
+              <h3 className="text-xs font-black text-white uppercase tracking-[0.3em] mb-6 flex items-center gap-3">
+                <span className="w-8 h-px bg-green-500"></span>
+                Points_Clés
+              </h3>
+              <ul className="grid grid-cols-1 gap-4">
+                {tData.details.features.map((feature: string, i: number) => (
+                  <li key={i} className="flex items-start gap-3 text-slate-400 text-sm">
+                    <span className="text-green-500 font-mono mt-1">0{i+1}</span>
+                    <span className="font-medium">{feature}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
+
+          {tData.details?.technologies && (
+            <div>
+              <h3 className="text-xs font-black text-white uppercase tracking-[0.3em] mb-6 flex items-center gap-3">
+                <span className="w-8 h-px bg-green-500"></span>
+                Stack_Technique
+              </h3>
+              <div className="flex flex-wrap gap-2">
+                {tData.details.technologies.map((tech: string) => (
+                  <span key={tech} className="px-3 py-1.5 bg-slate-800 border border-slate-700 text-slate-300 text-[10px] font-bold rounded-lg uppercase tracking-wider">
+                    {tech}
+                  </span>
+                ))}
+              </div>
+            </div>
+          )}
         </div>
       </div>
     </div>
@@ -88,7 +111,7 @@ const ProjectModal: React.FC<{ project: any, tData: any, onClose: () => void }> 
 
 const ProjectCard: React.FC<{ project: any, tData: any, onOpen: () => void }> = ({ project, tData, onOpen }) => {
   const { t } = useLanguage();
-  const isMediaReady = project.imageUrl && !project.imageUrl.includes('projet');
+  const isMediaReady = project.imageUrl && !project.imageUrl.includes('/projet'); // Correction ici pour accepter les chemins relatifs locaux
 
   return (
     <div 
@@ -120,10 +143,9 @@ const ProjectCard: React.FC<{ project: any, tData: any, onOpen: () => void }> = 
           ))}
         </div>
         
-        {/* Overlay on hover */}
         <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity bg-green-500/10 backdrop-blur-[2px]">
             <div className="px-6 py-3 bg-green-500 text-slate-900 rounded-full font-black text-[10px] uppercase tracking-widest shadow-xl scale-90 group-hover:scale-100 transition-transform">
-                View_Project_Specs
+                Détails_Projet
             </div>
         </div>
       </div>
