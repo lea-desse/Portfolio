@@ -15,7 +15,8 @@ const Hobbies: React.FC = () => {
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M13 10V3L4 14h7v7l9-11h-7z" />
         </svg>
       ),
-      color: "bg-orange-500"
+      color: "bg-orange-500",
+      image: "./moto.png"
     },
     {
       id: 'bivouac',
@@ -56,8 +57,20 @@ const Hobbies: React.FC = () => {
             <div key={hobby.id} className="group relative bg-white p-10 rounded-[2.5rem] border-2 border-slate-100 hover:border-green-500 transition-all duration-500 shadow-xl hover:shadow-2xl overflow-hidden">
               <div className={`absolute top-0 right-0 w-32 h-32 ${hobby.color} opacity-[0.03] rounded-full -mr-16 -mt-16 group-hover:scale-150 transition-transform duration-700`}></div>
               
-              <div className={`w-16 h-16 ${hobby.color} text-white rounded-2xl flex items-center justify-center mb-8 shadow-lg group-hover:rotate-6 transition-transform`}>
-                {hobby.icon}
+              <div className="relative mb-8 flex items-center justify-between">
+                <div className={`w-16 h-16 ${hobby.color} text-white rounded-2xl flex items-center justify-center shadow-lg group-hover:rotate-6 transition-transform relative z-10`}>
+                  {hobby.icon}
+                </div>
+                
+                {hobby.image && (
+                  <div className="w-24 h-24 rounded-2xl overflow-hidden border-2 border-slate-100 rotate-3 group-hover:rotate-0 transition-all duration-500 shadow-inner">
+                    <img 
+                      src={hobby.image} 
+                      alt={hobby.title} 
+                      className="w-full h-full object-cover grayscale brightness-110 contrast-125 group-hover:grayscale-0 group-hover:scale-110 transition-all duration-700" 
+                    />
+                  </div>
+                )}
               </div>
               
               <h3 className="text-2xl font-black text-slate-900 mb-4 uppercase tracking-tight">{hobby.title}</h3>
