@@ -27,7 +27,8 @@ const Hobbies: React.FC = () => {
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M3 21h18M3 10l9-7 9 7v11H3V10z" />
         </svg>
       ),
-      color: "bg-blue-500"
+      color: "bg-blue-500",
+      image: "./rando.png"
     },
     {
       id: 'maker',
