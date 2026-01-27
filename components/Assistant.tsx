@@ -6,10 +6,28 @@ import { useLanguage } from '../context/LanguageContext';
 const Assistant: React.FC = () => {
   const { t, language } = useLanguage();
   const [isOpen, setIsOpen] = useState(false);
+  const [showBubble, setShowBubble] = useState(false);
   const [messages, setMessages] = useState<{role: 'user' | 'assistant', text: string}[]>([]);
   const [input, setInput] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const scrollRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    // Show welcome bubble after 2 seconds
+    const timer = setTimeout(() => {
+      if (!isOpen) setShowBubble(true);
+    }, 2000);
+
+    // Hide bubble after 8 seconds
+    const hideTimer = setTimeout(() => {
+      setShowBubble(false);
+    }, 10000);
+
+    return () => {
+      clearTimeout(timer);
+      clearTimeout(hideTimer);
+    };
+  }, [isOpen]);
 
   useEffect(() => {
     setMessages([
@@ -107,14 +125,29 @@ const Assistant: React.FC = () => {
           </div>
         </div>
       ) : (
-        <button 
-          onClick={() => setIsOpen(true)}
-          className="w-16 h-16 bg-slate-900 border-2 border-green-500 rounded-full flex items-center justify-center text-green-500 shadow-neon-strong transition-all hover:scale-110 group"
-        >
-          <svg className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M13 10V3L4 14h7v7l9-11h-7z" />
-          </svg>
-        </button>
+        <div className="relative group">
+          {showBubble && (
+            <div className="absolute bottom-20 right-0 w-64 bg-green-500 text-slate-950 p-4 rounded-2xl shadow-2xl animate-in slide-in-from-bottom-4 duration-500 cursor-pointer" onClick={() => setIsOpen(true)}>
+              <div className="absolute -bottom-2 right-6 w-4 h-4 bg-green-500 rotate-45"></div>
+              <p className="text-[11px] font-black leading-tight uppercase italic">
+                {language === 'fr' 
+                  ? "Besoin d'un renseignement ? Posez-moi vos questions sur le parcours de Léa !" 
+                  : "Need info? Ask me anything about Léa's career!"}
+              </p>
+            </div>
+          )}
+          <button 
+            onClick={() => {
+              setIsOpen(true);
+              setShowBubble(false);
+            }}
+            className="w-16 h-16 bg-slate-900 border-2 border-green-500 rounded-full flex items-center justify-center text-green-500 shadow-neon-strong transition-all hover:scale-110"
+          >
+            <svg className="h-8 w-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2.5}>
+              <path strokeLinecap="round" strokeLinejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" />
+            </svg>
+          </button>
+        </div>
       )}
     </div>
   );
