@@ -40,17 +40,28 @@ const Skills: React.FC = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
           {filteredSkills.map((skill) => (
-            <div key={skill.name} className="bg-white p-6 rounded-xl border border-slate-200 hover:border-green-500 transition-all duration-300 group shadow-sm hover:shadow-md">
-              <div className="flex justify-between items-center mb-4">
-                <span className="font-black text-sm text-slate-900 uppercase tracking-tight">{skill.name}</span>
-                <span className="text-green-500 text-[10px] font-black uppercase">{skill.category}</span>
+            <div key={skill.name} className="group relative bg-white p-6 rounded-xl border border-slate-200 hover:border-green-500 transition-all duration-300 shadow-sm hover:shadow-md overflow-hidden">
+              {/* Contenu de base */}
+              <div className="transition-all duration-300 group-hover:opacity-0 group-hover:-translate-y-4">
+                <div className="flex justify-between items-center mb-4">
+                  <span className="font-black text-sm text-slate-900 uppercase tracking-tight">{skill.name}</span>
+                  <span className="text-green-500 text-[10px] font-black uppercase">{skill.category}</span>
+                </div>
+                
+                <div className="relative h-2 bg-slate-100 rounded-full overflow-hidden">
+                  <div 
+                    className="absolute top-0 left-0 h-full bg-green-500 rounded-full transition-all duration-1000 ease-out"
+                    style={{ width: `${skill.level}%` }}
+                  ></div>
+                </div>
               </div>
-              
-              <div className="relative h-2 bg-slate-100 rounded-full overflow-hidden">
-                <div 
-                  className="absolute top-0 left-0 h-full bg-green-500 rounded-full transition-all duration-1000 ease-out"
-                  style={{ width: `${skill.level}%` }}
-                ></div>
+
+              {/* Overlay Justification au survol */}
+              <div className="absolute inset-0 bg-slate-900 p-6 flex flex-col justify-center translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out">
+                <p className="text-green-500 text-[9px] font-black uppercase tracking-[0.2em] mb-2">Justification_Log</p>
+                <p className="text-white text-xs font-medium leading-relaxed italic">
+                  "{skill.justification}"
+                </p>
               </div>
             </div>
           ))}

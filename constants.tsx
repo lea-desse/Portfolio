@@ -322,21 +322,21 @@ export const TRANSLATIONS: any = {
 };
 
 export const SKILLS: Skill[] = [
-  { name: 'C', level: 95, category: 'Software' },
-  { name: 'Python', level: 85, category: 'Software' },
-  { name: 'C++', level: 75, category: 'Software' },
-  { name: 'STM32 Ecosystem', level: 90, category: 'Hardware' },
-  { name: 'ESP32 / ESP-IDF', level: 85, category: 'Hardware' },
-  { name: 'PCB Design & 3D Printing', level: 80, category: 'Hardware' },
-  { name: 'CAN / CAN FD', level: 95, category: 'Protocols' },
-  { name: 'I2C / UART / SPI', level: 95, category: 'Protocols' },
-  { name: 'Zigbee', level: 90, category: 'Protocols' },
-  { name: 'OpenThread', level: 90, category: 'Protocols' },
-  { name: 'NFC (ST25)', level: 85, category: 'Protocols' },
-  { name: 'Bluetooth / BLE', level: 80, category: 'Protocols' },
-  { name: 'Git', level: 90, category: 'Tools' },
-  { name: 'Jenkins / CI-CD', level: 80, category: 'Tools' },
-  { name: 'Joulescope / ST-Link V3', level: 85, category: 'Tools' },
+  { name: 'C', level: 95, category: 'Software', justification: 'Utilisation quotidienne chez ST et Elsys pour le firmware bas-niveau.' },
+  { name: 'Python', level: 85, category: 'Software', justification: 'Développement d\'outils d\'automatisation chez ST et scripts pour l\'orthèse.' },
+  { name: 'C++', level: 75, category: 'Software', justification: 'Utilisé pour la modélisation objet dans mes projets académiques et personnels.' },
+  { name: 'STM32 Ecosystem', level: 90, category: 'Hardware', justification: 'Expertise centrale chez ST (H7, F4, WB, L0) et sur mes projets persos.' },
+  { name: 'ESP32 / ESP-IDF', level: 85, category: 'Hardware', justification: 'Cœur du projet d\'imprimante thermique connectée et divers modules IoT.' },
+  { name: 'PCB Design & 3D Printing', level: 80, category: 'Hardware', justification: 'Conception complète (KiCad) et boîtiers pour les projets Moto et Imprimante.' },
+  { name: 'CAN / CAN FD', level: 95, category: 'Protocols', justification: 'Protocole clé du projet Ailerons Moto et des bancs de test chez Elsys.' },
+  { name: 'I2C / UART / SPI', level: 95, category: 'Protocols', justification: 'Interfaçage systématique de capteurs (IMU, NFC, Écrans) sur tous mes projets.' },
+  { name: 'Zigbee', level: 90, category: 'Protocols', justification: 'Validation et support des piles protocolaires professionnelles chez ST.' },
+  { name: 'OpenThread', level: 90, category: 'Protocols', justification: 'Expertise acquise chez Elsys et ST pour les réseaux Mesh basse consommation.' },
+  { name: 'NFC (ST25)', level: 85, category: 'Protocols', justification: 'Implémentation complète sur le projet de lecteur de badges sécurisé.' },
+  { name: 'Bluetooth / BLE', level: 80, category: 'Protocols', justification: 'Support technique et intégration sur les séries STM32WB.' },
+  { name: 'Git', level: 90, category: 'Tools', justification: 'Gestion de version rigoureuse sur tous mes projets professionnels et personnels.' },
+  { name: 'Jenkins / CI-CD', level: 80, category: 'Tools', justification: 'Mise en place de pipelines de validation automatisée chez ST.' },
+  { name: 'Joulescope / ST-Link V3', level: 85, category: 'Tools', justification: 'Mesures de précision pour l\'optimisation de la consommation énergétique.' },
 ];
 
 export const PROJECTS_BASE: any[] = [
