@@ -121,9 +121,13 @@ export const TRANSLATIONS: any = {
           description: [
             "Responsable de la validation des applications BLE, OpenThread et Zigbee sur STM32WB et STM32WBA.",
             "Expertise en tests 'Concurrent Mode' (multi-protocole) garantissant la robustesse radio en temps réel.",
-            "Conception intégrale d'un framework d'automatisation Python utilisé mondialement par les équipes applications.",
-            "Amélioration continue de la couverture de tests et implémentation de fonctionnalités techniques avancées."
-          ]
+            "Conception intégrale d'un framework d'automatisation Python utilisé mondialement par les équipes applications."
+          ],
+          details: {
+            title: "Expertise Validation Connectivité & Frameworks",
+            fullDescription: "Au sein de l'équipe connectivité, j'ai pris la responsabilité technique de la validation des cas d'usage complexes. Mon travail s'est concentré sur les modes 'Concurrent', où plusieurs protocoles radio (ex: BLE et Zigbee) doivent coexister sans collision sur la même puce. J'ai développé intégralement en Python un framework de test modulaire qui gère l'orchestration des bancs de tests, la remontée de métriques RF et l'analyse de protocole. Cet outil est aujourd'hui le socle de validation pour toutes les équipes d'application Bluetooth de ST.",
+            technologies: ["Python", "BLE", "Zigbee", "OpenThread", "RF Testing", "STM32WBA"]
+          }
         },
         {
           company: "Elsys Design (Prestation chez ST)",
@@ -131,11 +135,15 @@ export const TRANSLATIONS: any = {
           period: "2020 - 2021",
           logo: "./elsys_logo.png",
           description: [
-            "Conception 'from scratch' d'un écosystème d'automatisation pour Zigbee et OpenThread, remplaçant les processus manuels.",
-            "Automatisation du cycle complet : flashage des cibles, exécution de scénarios et génération de rapports HTML.",
-            "Optimisation des ressources : réduction de la charge de validation manuelle, libérant les équipes pour la R&D.",
-            "Mise en œuvre d'un suivi d'intégration régulier permettant une détection précoce des régressions firmware."
-          ]
+            "Conception 'from scratch' d'un écosystème d'automatisation pour Zigbee et OpenThread.",
+            "Automatisation du cycle complet : flashage, exécution de scénarios et rapports HTML.",
+            "Impact direct : libération de temps ingénieur et fiabilisation des releases firmware."
+          ],
+          details: {
+            title: "Initialisation de l'Automatisation 'From Scratch'",
+            fullDescription: "À mon arrivée, la validation des piles Zigbee et OpenThread était exclusivement manuelle. J'ai conçu et développé de zéro une suite d'outils permettant d'automatiser tout le processus. Le système prend en charge le flashage automatique des boards, le lancement de scénarios de tests scénarisés et la génération automatique de rapports HTML visuels. Cette transformation a permis de libérer les ingénieurs d'application de tâches répétitives et d'assurer un suivi d'intégration quotidien, réduisant drastiquement le nombre de régressions lors des releases finales.",
+            technologies: ["Python", "Automation", "HTML Reports", "Zigbee", "System Testing"]
+          }
         },
         {
           company: "Elsys Design",
@@ -278,9 +286,13 @@ export const TRANSLATIONS: any = {
           description: [
             "Responsible for BLE, OpenThread, and Zigbee application validation on STM32WB and STM32WBA series.",
             "Expertise in 'Concurrent Mode' testing (multi-protocol), ensuring real-time radio robustness.",
-            "Full design and development of a Python automation framework used worldwide by applications teams.",
-            "Continuous improvement of test coverage and implementation of advanced technical features."
-          ]
+            "Full design and development of a Python automation framework used worldwide by applications teams."
+          ],
+          details: {
+            title: "Connectivity Validation & Framework Expertise",
+            fullDescription: "As part of the connectivity team, I took technical responsibility for validating complex use cases. My work focused on 'Concurrent Modes', where multiple radio protocols (e.g., BLE and Zigbee) must coexist without collision on the same chip. I developed a modular Python-based test framework from scratch that handles test bench orchestration, RF metrics collection, and protocol analysis. This tool is now the standard validation foundation for all Bluetooth application teams at ST.",
+            technologies: ["Python", "BLE", "Zigbee", "OpenThread", "RF Testing", "STM32WBA"]
+          }
         },
         {
           company: "Elsys Design (Contractor at ST)",
@@ -290,9 +302,13 @@ export const TRANSLATIONS: any = {
           description: [
             "'From scratch' design of an automation ecosystem for Zigbee and OpenThread, replacing manual processes.",
             "Full cycle automation: firmware flashing, complex scenario execution, and detailed HTML report generation.",
-            "Resource optimization: drastically reduced manual validation workload, freeing up R&D teams.",
-            "Implementation of regular integration tracking for early firmware regression detection."
-          ]
+            "Resource optimization: drastically reduced manual validation workload, freeing up R&D teams."
+          ],
+          details: {
+            title: "Building Automation Ecosystems From Scratch",
+            fullDescription: "When I started, Zigbee and OpenThread stack validation was entirely manual. I designed and built a suite of tools from the ground up to automate the entire process. The system handles automatic board flashing, scripted test scenario execution, and visual HTML report generation. This transformation freed application engineers from repetitive tasks and allowed for daily integration tracking, significantly reducing regressions in final firmware releases.",
+            technologies: ["Python", "Automation", "HTML Reports", "Zigbee", "System Testing"]
+          }
         },
         {
           company: "Elsys Design",
