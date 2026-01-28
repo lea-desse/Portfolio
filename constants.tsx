@@ -127,12 +127,14 @@ export const TRANSLATIONS: any = {
         },
         {
           company: "Elsys Design (Prestation chez ST)",
-          role: "Ingénieure Logiciel Embarqué",
+          role: "Ingénieure Consultante Validation Embarquée",
           period: "2020 - 2021",
           logo: "./elsys_logo.png",
           description: [
-            "Développement de tests embarqués en C pour la validation de l'intégration OpenThread sur STM32WB.",
-            "Développement d'outils de support pour Zigbee et OpenThread en Python."
+            "Conception 'from scratch' d'un écosystème d'automatisation pour Zigbee et OpenThread, remplaçant les processus manuels.",
+            "Automatisation du cycle complet : flashage des cibles, exécution de scénarios et génération de rapports HTML.",
+            "Optimisation des ressources : réduction de la charge de validation manuelle, libérant les équipes pour la R&D.",
+            "Mise en œuvre d'un suivi d'intégration régulier permettant une détection précoce des régressions firmware."
           ]
         },
         {
@@ -282,12 +284,14 @@ export const TRANSLATIONS: any = {
         },
         {
           company: "Elsys Design (Contractor at ST)",
-          role: "Embedded Software Engineer",
+          role: "Embedded Validation Consultant",
           period: "2020 - 2021",
           logo: "./elsys_logo.png",
           description: [
-            "Development of embedded tests in C for OpenThread integration validation on STM32WB.",
-            "Development of support tools for Zigbee and OpenThread in Python."
+            "'From scratch' design of an automation ecosystem for Zigbee and OpenThread, replacing manual processes.",
+            "Full cycle automation: firmware flashing, complex scenario execution, and detailed HTML report generation.",
+            "Resource optimization: drastically reduced manual validation workload, freeing up R&D teams.",
+            "Implementation of regular integration tracking for early firmware regression detection."
           ]
         },
         {
