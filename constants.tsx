@@ -115,13 +115,14 @@ export const TRANSLATIONS: any = {
       experiences: [
         {
           company: "STMicroelectronics",
-          role: "Ingénieure Logiciel Embarqué",
+          role: "Ingénieure Validation Logiciel Embarqué & Connectivité",
           period: "2021 - 2026",
           logo: "./st_logo.png",
           description: [
-            "Développement et maintenance d'outils de validation pour les piles Zigbee et OpenThread.",
-            "Intégration continue avec Jenkins et optimisation des processus de développement.",
-            "Automatisation des mesures de consommation d'énergie (Joulescope, ST-Link V3 PWR)."
+            "Responsable de la validation des applications BLE, OpenThread et Zigbee sur STM32WB et STM32WBA.",
+            "Expertise en tests 'Concurrent Mode' (multi-protocole) garantissant la robustesse radio en temps réel.",
+            "Conception intégrale d'un framework d'automatisation Python utilisé mondialement par les équipes applications.",
+            "Amélioration continue de la couverture de tests et implémentation de fonctionnalités techniques avancées."
           ]
         },
         {
@@ -269,13 +270,14 @@ export const TRANSLATIONS: any = {
       experiences: [
         {
           company: "STMicroelectronics",
-          role: "Embedded Software Engineer",
+          role: "Embedded Software Validation & Connectivity Engineer",
           period: "2021 - 2026",
           logo: "./st_logo.png",
           description: [
-            "Development and maintenance of validation tools for Zigbee and OpenThread stacks.",
-            "Continuous integration with Jenkins and development process optimization.",
-            "Automation of power consumption measurements (Joulescope, ST-Link V3 PWR)."
+            "Responsible for BLE, OpenThread, and Zigbee application validation on STM32WB and STM32WBA series.",
+            "Expertise in 'Concurrent Mode' testing (multi-protocol), ensuring real-time radio robustness.",
+            "Full design and development of a Python automation framework used worldwide by applications teams.",
+            "Continuous improvement of test coverage and implementation of advanced technical features."
           ]
         },
         {
