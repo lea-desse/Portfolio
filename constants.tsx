@@ -108,18 +108,19 @@ export const TRANSLATIONS: any = {
         },
         {
           title: "Système de Lecteur de Badges NFC",
-          description: "Développement de firmware avec communication RS232 vers un serveur Python. Utilisation de STM32L0 et ST25R200.",
+          description: "Développement de firmware avec communication RS232 vers un serveur Python. Utilisation de STM32L073 et ST25R200.",
           category: "Sécurité",
           details: {
             title: "Contrôleur d'Accès NFC Sécurisé",
-            fullDescription: "Conception d'un lecteur de badges communicant. La carte, articulée autour d'un STM32L073 et d'un contrôleur NFC ST25R3911B (série ST25R), lit l'UID unique des badges et interroge un serveur central via une liaison RS232 pour valider les droits d'accès.",
+            fullDescription: "Conception d'un lecteur de badges communicant. La carte, articulée autour d'un STM32L073 et d'un contrôleur NFC ST25R200, lit l'UID unique des badges et interroge un serveur central via une liaison RS232 pour valider les droits d'accès. J'ai configuré et intégré la pile logicielle RFAL (Radio Frequency Abstraction Layer) pour assurer la communication avec le ST25R200 sur la plateforme STM32L0.",
             features: [
-              "Lecture d'UID NFC haute sensibilité (ST25R)",
+              "Lecture d'UID NFC via ST25R200 et pile RFAL",
+              "Configuration personnalisée de la RFAL pour STM32L073",
               "Communication série robuste via RS232 avec protocole de commande",
               "Retour utilisateur : buzzer piezo et LED RGB pour statut d'accès",
               "Gestion basse consommation du microcontrôleur STM32L0"
             ],
-            technologies: ["C", "STM32L073", "ST25R", "RS232", "STM32CubeIDE", "STM32CubeMX"]
+            technologies: ["C", "STM32L073", "ST25R200", "RFAL", "RS232", "STM32CubeIDE"]
           }
         }
       ],
@@ -284,18 +285,19 @@ export const TRANSLATIONS: any = {
         },
         {
           title: "NFC Badge Reader System",
-          description: "Firmware development with RS232 communication to a Python server. Using STM32L0 and ST25R200.",
+          description: "Firmware development with RS232 communication to a Python server. Using STM32L073 and ST25R200.",
           category: "Security",
           details: {
             title: "Secure NFC Access Controller",
-            fullDescription: "Design of a communicating badge reader. The board, based on a STM32L073 and a ST25R series NFC controller, reads unique card UIDs and queries a central server via RS232 link to validate access rights.",
+            fullDescription: "Design of a communicating badge reader. The board, based on a STM32L073 and a ST25R200 NFC controller, reads unique card UIDs and queries a central server via RS232 link to validate access rights. I configured and integrated the RFAL (Radio Frequency Abstraction Layer) software stack to handle communication with the ST25R200 on the STM32L0 platform.",
             features: [
-              "High-sensitivity NFC UID reading (ST25R series)",
+              "NFC UID reading via ST25R200 and RFAL stack",
+              "Custom RFAL configuration for STM32L073",
               "Robust serial communication via RS232 with command protocol",
               "User feedback: Piezo buzzer and RGB LED for access status",
               "Low-power management using STM32L0 microcontroller"
             ],
-            technologies: ["C", "STM32L073", "ST25R", "RS232", "STM32CubeIDE", "STM32CubeMX"]
+            technologies: ["C", "STM32L073", "ST25R200", "RFAL", "RS232", "STM32CubeIDE"]
           }
         }
       ],
