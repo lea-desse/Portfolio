@@ -109,7 +109,18 @@ export const TRANSLATIONS: any = {
         {
           title: "Système de Lecteur de Badges NFC",
           description: "Développement de firmware avec communication RS232 vers un serveur Python. Utilisation de STM32L0 et ST25R200.",
-          category: "Sécurité"
+          category: "Sécurité",
+          details: {
+            title: "Contrôleur d'Accès NFC Sécurisé",
+            fullDescription: "Conception d'un lecteur de badges communicant. La carte, articulée autour d'un STM32L073 et d'un contrôleur NFC ST25R3911B (série ST25R), lit l'UID unique des badges et interroge un serveur central via une liaison RS232 pour valider les droits d'accès.",
+            features: [
+              "Lecture d'UID NFC haute sensibilité (ST25R)",
+              "Communication série robuste via RS232 avec protocole de commande",
+              "Retour utilisateur : buzzer piezo et LED RGB pour statut d'accès",
+              "Gestion basse consommation du microcontrôleur STM32L0"
+            ],
+            technologies: ["C", "STM32L073", "ST25R", "RS232", "STM32CubeIDE", "STM32CubeMX"]
+          }
         }
       ],
       experiences: [
@@ -274,7 +285,18 @@ export const TRANSLATIONS: any = {
         {
           title: "NFC Badge Reader System",
           description: "Firmware development with RS232 communication to a Python server. Using STM32L0 and ST25R200.",
-          category: "Security"
+          category: "Security",
+          details: {
+            title: "Secure NFC Access Controller",
+            fullDescription: "Design of a communicating badge reader. The board, based on a STM32L073 and a ST25R series NFC controller, reads unique card UIDs and queries a central server via RS232 link to validate access rights.",
+            features: [
+              "High-sensitivity NFC UID reading (ST25R series)",
+              "Robust serial communication via RS232 with command protocol",
+              "User feedback: Piezo buzzer and RGB LED for access status",
+              "Low-power management using STM32L0 microcontroller"
+            ],
+            technologies: ["C", "STM32L073", "ST25R", "RS232", "STM32CubeIDE", "STM32CubeMX"]
+          }
         }
       ],
       experiences: [
@@ -379,6 +401,6 @@ export const PROJECTS_BASE: any[] = [
     id: '3',
     tags: ["STM32L0", "NFC", "RS232"],
     imageUrl: "/projet3.jpg",
-    videoUrl: "/projet3.mp4"
+    videoUrl: "./projet3_1.mp4"
   },
 ];
