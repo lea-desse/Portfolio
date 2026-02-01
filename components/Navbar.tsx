@@ -1,9 +1,13 @@
 
-import React from 'react';
+import React, { useState } from 'react';
 import { useLanguage } from '../context/LanguageContext';
 
 const Navbar: React.FC = () => {
   const { language, setLanguage, t } = useLanguage();
+  const [isOpen, setIsOpen] = useState(false);
+
+  const toggleMenu = () => setIsOpen(!isOpen);
+  const closeMenu = () => setIsOpen(false);
 
   return (
     <nav className="fixed top-0 left-0 w-full z-50 bg-slate-900/90 backdrop-blur-md border-b border-white/5">
@@ -46,13 +50,44 @@ const Navbar: React.FC = () => {
               >
                 {language.toUpperCase()}
               </button>
-            <button className="p-2 text-white bg-slate-800 rounded-lg">
+            <button 
+              onClick={toggleMenu}
+              className="p-2 text-white bg-slate-800 rounded-lg"
+            >
               <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M4 6h16M4 12h16m-7 6h7" />
+                {isOpen ? (
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M6 18L18 6M6 6l12 12" />
+                ) : (
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M4 6h16M4 12h16m-7 6h7" />
+                )}
               </svg>
             </button>
           </div>
         </div>
+      </div>
+
+      {/* Mobile Menu Overlay */}
+      <div className={`fixed inset-0 w-full h-screen bg-slate-900 z-[100] md:hidden transition-all duration-300 ${isOpen ? 'translate-x-0 opacity-100' : 'translate-x-full opacity-0 pointer-events-none'}`}>
+          <div className="flex flex-col items-center justify-center h-full space-y-8 p-8 relative">
+            <button 
+              onClick={closeMenu}
+              className="absolute top-6 right-6 p-2 text-white bg-slate-800 rounded-lg"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </button>
+            <a href="#about" onClick={closeMenu} className="text-2xl font-black text-white uppercase tracking-widest hover:text-green-500 transition-colors">{t('nav.about')}</a>
+            <a href="#projects" onClick={closeMenu} className="text-2xl font-black text-white uppercase tracking-widest hover:text-green-500 transition-colors">{t('nav.projects')}</a>
+            <a href="#skills" onClick={closeMenu} className="text-2xl font-black text-white uppercase tracking-widest hover:text-green-500 transition-colors">{t('nav.skills')}</a>
+            <a href="#experience" onClick={closeMenu} className="text-2xl font-black text-white uppercase tracking-widest hover:text-green-500 transition-colors">{t('nav.experience')}</a>
+            <a href="#hobbies" onClick={closeMenu} className="text-2xl font-black text-white uppercase tracking-widest hover:text-green-500 transition-colors">{t('nav.hobbies')}</a>
+            <div className="w-full pt-8 max-w-xs">
+              <a href="#contact" onClick={closeMenu} className="block w-full text-center px-10 py-5 bg-green-500 text-slate-900 rounded-2xl font-black uppercase tracking-widest shadow-xl">
+                {t('nav.contact')}
+              </a>
+            </div>
+          </div>
       </div>
     </nav>
   );

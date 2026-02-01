@@ -88,9 +88,10 @@ const Experience: React.FC = () => {
 
           <div className="space-y-20">
             {tExperiences.map((exp: any, idx: number) => (
-              <div key={idx} className={`relative flex flex-col md:flex-row items-center gap-8 ${idx % 2 === 0 ? 'md:flex-row-reverse' : ''}`}>
+              <div key={idx} className={`relative flex flex-col md:flex-row md:items-center gap-8 ${idx % 2 === 0 ? 'md:flex-row-reverse' : ''}`}>
                 
-                <div className="absolute left-4 md:left-1/2 md:-translate-x-1/2 w-6 h-6 rounded-full bg-slate-900 border-4 border-green-500 shadow-[0_0_20px_rgba(34,197,94,0.8)] z-20 flex items-center justify-center">
+                {/* Bullet point fixed to the line */}
+                <div className="absolute left-[1.125rem] md:left-1/2 -translate-x-1/2 top-10 md:top-1/2 md:-translate-y-1/2 w-6 h-6 rounded-full bg-slate-900 border-4 border-green-500 shadow-[0_0_20px_rgba(34,197,94,0.8)] z-20 flex items-center justify-center">
                   <div className="w-1.5 h-1.5 bg-white rounded-full animate-ping"></div>
                 </div>
 
