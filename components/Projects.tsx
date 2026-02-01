@@ -33,8 +33,8 @@ const ProjectModal: React.FC<{ project: any, tData: any, onClose: () => void }> 
         </button>
 
         {/* Media Section */}
-        <div className="lg:w-3/5 bg-slate-950 flex flex-col relative border-r border-slate-800">
-          <div className="flex-1 flex items-center justify-center overflow-hidden min-h-[300px] lg:min-h-[500px]">
+        <div className="lg:w-3/5 bg-slate-950 flex flex-col relative border-r border-slate-800 max-h-[50vh] lg:max-h-none">
+          <div className="flex-1 flex items-center justify-center overflow-hidden min-h-[250px] lg:min-h-[500px]">
             {renderMedia(mediaList[activeMedia])}
           </div>
           
