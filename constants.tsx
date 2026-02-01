@@ -104,7 +104,8 @@ export const TRANSLATIONS: any = {
         {
           title: "Imprimante Thermique Connectée",
           description: "Imprimante thermique connectée en WiFi avec authentification API et configuration Point d'Accès.",
-          category: "IoT"
+          category: "IoT",
+          status: "in-progress"
         },
         {
           title: "Système de Lecteur de Badges NFC",
@@ -281,7 +282,8 @@ export const TRANSLATIONS: any = {
         {
           title: "Connected Thermal Printer",
           description: "WiFi-connected thermal printer with API authentication and Access Point configuration.",
-          category: "IoT"
+          category: "IoT",
+          status: "in-progress"
         },
         {
           title: "NFC Badge Reader System",
@@ -397,12 +399,13 @@ export const PROJECTS_BASE: any[] = [
     id: '2',
     tags: ["ESP32", "WiFi", "UART"],
     imageUrl: "/projet2.jpg",
-    videoUrl: "/projet2.mp4"
+    videoUrl: "/projet2.mp4",
+    status: "in-progress"
   },
   {
     id: '3',
     tags: ["STM32L0", "NFC", "RS232"],
-    imageUrl: "/projet3.jpg",
+    imageUrl: "./projet_3.jpg",
     videoUrl: "./projet3_1.mp4"
   },
 ];

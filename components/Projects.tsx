@@ -111,16 +111,26 @@ const ProjectModal: React.FC<{ project: any, tData: any, onClose: () => void }> 
 };
 
 const ProjectCard: React.FC<{ project: any, tData: any, onOpen: () => void }> = ({ project, tData, onOpen }) => {
-  const { t } = useLanguage();
-  const isMediaReady = project.imageUrl && !project.imageUrl.includes('Coming_Soon') && !project.imageUrl.includes('placeholder'); 
+  const { t, language } = useLanguage();
+  const isInProgress = project.status === 'in-progress';
+  const isMediaReady = project.imageUrl && !project.imageUrl.includes('Coming_Soon') && !project.imageUrl.includes('placeholder') && !isInProgress; 
 
   return (
     <div 
       onClick={onOpen}
-      className="bg-slate-800/50 rounded-3xl overflow-hidden group h-full flex flex-col transition-all duration-500 hover:scale-[1.02] border-2 border-slate-700 hover:border-green-500 shadow-2xl cursor-pointer"
+      className="bg-slate-800/50 rounded-3xl overflow-hidden group h-full flex flex-col transition-all duration-500 hover:scale-[1.02] border-2 border-slate-700 hover:border-green-500 shadow-2xl cursor-pointer relative"
     >
       <div className="relative h-72 overflow-hidden bg-slate-950 flex items-center justify-center">
-        {isMediaReady ? (
+        {isInProgress ? (
+          <div className="absolute inset-0 flex flex-col items-center justify-center bg-slate-900/80 backdrop-blur-sm z-10 border-b-2 border-yellow-500/50">
+            <div className="w-16 h-16 border-2 border-yellow-500/20 rounded-full flex items-center justify-center animate-pulse mb-4">
+              <svg className="w-8 h-8 text-yellow-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path></svg>
+            </div>
+            <span className="text-yellow-500 font-black text-xs uppercase tracking-[0.2em] animate-bounce">
+              {language === 'fr' ? 'En Travaux' : 'Work in Progress'}
+            </span>
+          </div>
+        ) : isMediaReady ? (
           <img 
             src={project.imageUrl} 
             alt={tData.title} 
@@ -136,30 +146,44 @@ const ProjectCard: React.FC<{ project: any, tData: any, onOpen: () => void }> = 
           </div>
         )}
         <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-transparent to-transparent opacity-60"></div>
-        <div className="absolute top-4 left-4 flex gap-2">
+        <div className="absolute top-4 left-4 flex gap-2 z-20">
           {project.tags.map((tag: string) => (
             <span key={tag} className="px-2 py-1 bg-green-500/90 text-white text-[8px] font-black rounded uppercase tracking-tighter backdrop-blur-sm">
               {tag}
             </span>
           ))}
+          {isInProgress && (
+            <span className="px-2 py-1 bg-yellow-500 text-slate-900 text-[8px] font-black rounded uppercase tracking-tighter shadow-lg">
+              WIP
+            </span>
+          )}
         </div>
         
-        <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity bg-green-500/10 backdrop-blur-[2px]">
-            <div className="px-6 py-3 bg-green-500 text-slate-900 rounded-full font-black text-[10px] uppercase tracking-widest shadow-xl scale-90 group-hover:scale-100 transition-transform">
-                Détails_Projet
-            </div>
-        </div>
+        {!isInProgress && (
+          <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity bg-green-500/10 backdrop-blur-[2px] z-20">
+              <div className="px-6 py-3 bg-green-500 text-slate-900 rounded-full font-black text-[10px] uppercase tracking-widest shadow-xl scale-90 group-hover:scale-100 transition-transform">
+                  Détails_Projet
+              </div>
+          </div>
+        )}
       </div>
       <div className="p-8 flex flex-col flex-1">
-        <h3 className="text-2xl font-black mb-4 text-white uppercase tracking-tight leading-tight group-hover:text-green-400 transition-colors">{tData.title}</h3>
+        <h3 className={`text-2xl font-black mb-4 text-white uppercase tracking-tight leading-tight transition-colors ${!isInProgress ? 'group-hover:text-green-400' : 'group-hover:text-yellow-400'}`}>{tData.title}</h3>
         <p className="text-slate-400 text-sm leading-relaxed mb-8 flex-1 font-medium">
           {tData.description}
+          {isInProgress && (
+            <span className="block mt-4 italic text-yellow-500/70 text-xs">
+              {language === 'fr' ? '→ Plus d\'informations seront disponibles prochainement sur ce projet.' : '→ More information will be available soon on this project.'}
+            </span>
+          )}
         </p>
         <div className="flex items-center justify-between mt-auto pt-6 border-t border-slate-800">
-          <span className="text-[10px] text-green-500 font-black uppercase tracking-widest">{tData.category}</span>
-          <span className="w-8 h-8 rounded-full border border-slate-700 flex items-center justify-center text-slate-500 group-hover:border-green-500 group-hover:text-green-500 transition-all">
-            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 4v16m8-8H4"></path></svg>
-          </span>
+          <span className={`text-[10px] font-black uppercase tracking-widest ${isInProgress ? 'text-yellow-500' : 'text-green-500'}`}>{tData.category}</span>
+          {!isInProgress && (
+            <span className="w-8 h-8 rounded-full border border-slate-700 flex items-center justify-center text-slate-500 group-hover:border-green-500 group-hover:text-green-500 transition-all">
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 4v16m8-8H4"></path></svg>
+            </span>
+          )}
         </div>
       </div>
     </div>
@@ -194,7 +218,11 @@ const Projects: React.FC = () => {
               key={project.id} 
               project={project} 
               tData={tProjects[idx]} 
-              onOpen={() => setSelectedProject(idx)}
+              onOpen={() => {
+                if (project.status !== 'in-progress') {
+                  setSelectedProject(idx);
+                }
+              }}
             />
           ))}
         </div>

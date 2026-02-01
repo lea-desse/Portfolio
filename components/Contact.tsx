@@ -41,20 +41,22 @@ const Contact: React.FC = () => {
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 lg:pl-24 relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-24 items-start">
-          <div>
-            <div className="inline-block px-4 py-1 mb-8 rounded-full bg-green-500/10 border border-green-500/20 text-green-400 text-[10px] font-black uppercase tracking-[0.4em]">
-              Ready_To_Deploy
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-24 items-stretch">
+          <div className="flex flex-col">
+            <div className="flex-1">
+              <div className="inline-block px-4 py-1 mb-8 rounded-full bg-green-500/10 border border-green-500/20 text-green-400 text-[10px] font-black uppercase tracking-[0.4em]">
+                Ready_To_Deploy
+              </div>
+              <h2 className="text-6xl md:text-7xl font-black mb-8 text-white leading-none uppercase italic pr-12 overflow-visible">
+                {t('contact.title_first')} <br/>
+                <span className="gradient-text italic pr-6 inline-block">{t('contact.title_second')}</span>
+              </h2>
+              <p className="text-slate-400 text-lg mb-12 max-w-sm font-medium leading-relaxed border-l-4 border-green-500 pl-6">
+                {t('contact.subtitle')}
+              </p>
             </div>
-            <h2 className="text-6xl md:text-7xl font-black mb-8 text-white leading-none uppercase italic pr-12 overflow-visible">
-              {t('contact.title_first')} <br/>
-              <span className="gradient-text italic pr-6 inline-block">{t('contact.title_second')}</span>
-            </h2>
-            <p className="text-slate-400 text-lg mb-12 max-w-sm font-medium leading-relaxed border-l-4 border-green-500 pl-6">
-              {t('contact.subtitle')}
-            </p>
             
-            <div className="space-y-6">
+            <div className="space-y-6 mt-12">
               <a href={`mailto:${CV_DATA.email}`} className="flex items-center gap-6 p-6 rounded-3xl bg-slate-800/50 border border-slate-700 hover:border-green-500 transition-all group shadow-2xl backdrop-blur-xl">
                 <div className="w-14 h-14 rounded-2xl bg-green-500 flex items-center justify-center text-slate-900 shadow-[0_0_20px_rgba(34,197,94,0.3)] transition-transform group-hover:scale-110">
                   <svg xmlns="http://www.w3.org/2000/svg" className="h-7 w-7" viewBox="0 0 20 20" fill="currentColor">
@@ -126,7 +128,7 @@ const Contact: React.FC = () => {
                   <textarea 
                     required
                     name="message"
-                    rows={4} 
+                    rows={8} 
                     className="w-full bg-slate-900 border-2 border-slate-700 rounded-2xl px-6 py-5 focus:outline-none focus:border-green-500 transition-all font-black text-sm text-white placeholder-slate-700" 
                     placeholder={t('contact.placeholder_message')}
                   ></textarea>
@@ -143,10 +145,6 @@ const Contact: React.FC = () => {
               </form>
             )}
           </div>
-        </div>
-        
-        <div className="mt-40 pt-12 border-t border-slate-800 flex flex-col md:flex-row justify-between items-center gap-8 text-slate-500 text-[9px] font-black uppercase tracking-[0.4em]">
-          <p>{t('contact.footer_copy')}</p>
         </div>
       </div>
     </footer>
